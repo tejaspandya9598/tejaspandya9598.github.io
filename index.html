@@ -1,0 +1,754 @@
+<title>Tejas Pandya — Quantitative Research</title>
+<meta name="description" content="Quantitative research portfolio — execution, portfolio construction, derivatives pricing and market microstructure. Every figure measured, every limitation stated.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ── tokens: complete light palette on bare :root ─────────────────────── */
+:root{
+  --ground:#F6F7F9;
+  --panel:#FFFFFF;
+  --panel-2:#F0F2F5;
+  --ink:#141A22;
+  --ink-soft:#3D4756;
+  --muted:#6C7789;
+  --hair:#DCE1E8;
+  --hair-soft:#E8ECF1;
+  --accent:#B4761A;
+  --accent-soft:rgba(180,118,26,.10);
+  --pos:#2E7D63;
+  --neg:#B04A34;
+  --grid:rgba(20,26,34,.07);
+  --shadow:0 1px 2px rgba(20,26,34,.05), 0 8px 24px -12px rgba(20,26,34,.14);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,"Cascadia Mono","Roboto Mono",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F131A;
+    --panel:#151A23;
+    --panel-2:#1B212C;
+    --ink:#E7ECF3;
+    --ink-soft:#B3BDCC;
+    --muted:#7D8899;
+    --hair:#252D3A;
+    --hair-soft:#1E242F;
+    --accent:#E8A33D;
+    --accent-soft:rgba(232,163,61,.12);
+    --pos:#4FB286;
+    --neg:#D3654F;
+    --grid:rgba(231,236,243,.07);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -16px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F131A;
+  --panel:#151A23;
+  --panel-2:#1B212C;
+  --ink:#E7ECF3;
+  --ink-soft:#B3BDCC;
+  --muted:#7D8899;
+  --hair:#252D3A;
+  --hair-soft:#1E242F;
+  --accent:#E8A33D;
+  --accent-soft:rgba(232,163,61,.12);
+  --pos:#4FB286;
+  --neg:#D3654F;
+  --grid:rgba(231,236,243,.07);
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -16px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+@media(max-width:640px){.wrap{padding:0 18px}}
+
+/* ── shared type ──────────────────────────────────────────────────────── */
+.label{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;
+}
+.num{font-variant-numeric:tabular-nums;font-family:var(--mono)}
+h1,h2,h3{text-wrap:balance;font-family:var(--mono);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+p{max-width:68ch}
+a{color:inherit}
+
+/* ── masthead ─────────────────────────────────────────────────────────── */
+.masthead{
+  border-bottom:1px solid var(--hair);
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(10px);
+}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.sig{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em}
+.sig span{color:var(--muted);font-weight:400}
+.mnav{display:flex;gap:22px;align-items:center}
+.mnav a{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding:4px 0;border-bottom:1px solid transparent;
+}
+.mnav a:hover,.mnav a:focus-visible{color:var(--ink);border-bottom-color:var(--accent)}
+@media(max-width:720px){.mnav{display:none}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ── hero ─────────────────────────────────────────────────────────────── */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--hair)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:52px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}.hero{padding:44px 0 32px}}
+.hero h1{font-size:clamp(28px,4.4vw,46px);margin:14px 0 20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{color:var(--ink-soft);font-size:17px;line-height:1.65}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  border:1px solid var(--hair);border-radius:2px;padding:5px 9px;color:var(--ink-soft);
+  background:var(--panel);
+}
+
+/* ── figure shell ─────────────────────────────────────────────────────── */
+.fig{
+  background:var(--panel);border:1px solid var(--hair);border-radius:3px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.fig-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:11px 14px;border-bottom:1px solid var(--hair-soft);flex-wrap:wrap;
+}
+.fig-body{padding:12px 8px 8px}
+canvas{display:block;width:100%;touch-action:none}
+.readout{
+  display:flex;gap:22px;flex-wrap:wrap;padding:10px 14px 13px;border-top:1px solid var(--hair-soft);
+  background:var(--panel-2);
+}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.readout .v{font-family:var(--mono);font-size:15px;font-variant-numeric:tabular-nums;font-weight:600}
+
+/* ── sections ─────────────────────────────────────────────────────────── */
+section{padding:64px 0;border-bottom:1px solid var(--hair)}
+@media(max-width:640px){section{padding:44px 0}}
+.sec-head{margin-bottom:34px}
+.sec-head h2{font-size:clamp(20px,2.6vw,27px);margin:10px 0 12px}
+.sec-head p{color:var(--ink-soft)}
+
+/* ── findings ─────────────────────────────────────────────────────────── */
+.finding{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:36px;
+  padding:34px 0;border-top:1px solid var(--hair-soft);align-items:start;
+}
+.finding:first-of-type{border-top:none;padding-top:6px}
+@media(max-width:880px){.finding{grid-template-columns:1fr;gap:22px}}
+.finding h3{font-size:18px;margin:9px 0 12px}
+.finding p{color:var(--ink-soft);font-size:15.5px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.caveat{
+  font-size:14px;color:var(--ink-soft);border-left:2px solid var(--accent);
+  padding:9px 0 9px 13px;background:var(--accent-soft);
+}
+.caveat b{color:var(--ink);font-weight:600}
+.repo{
+  font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;
+  border-bottom:1px solid var(--hair);padding-bottom:1px;width:fit-content;
+}
+.repo:hover,.repo:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── tables ───────────────────────────────────────────────────────────── */
+.tw{overflow-x:auto;border:1px solid var(--hair);border-radius:3px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:400px}
+th,td{padding:8px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--hair-soft)}
+th:first-child,td:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:none}
+th{
+  font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;background:var(--panel-2);
+}
+td{font-variant-numeric:tabular-nums;font-family:var(--mono);color:var(--ink-soft)}
+td:first-child{color:var(--ink)}
+tbody tr.hi td{background:var(--accent-soft);color:var(--ink)}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+
+/* ── timeline ─────────────────────────────────────────────────────────── */
+.tl{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:132px minmax(0,1fr);gap:26px;padding:22px 0;border-top:1px solid var(--hair-soft)}
+.tl-item:first-child{border-top:none}
+@media(max-width:700px){.tl-item{grid-template-columns:1fr;gap:8px}}
+.tl-when{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.tl-what h3{font-size:16.5px;margin-bottom:3px}
+.tl-org{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin-bottom:9px}
+.tl-what ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.tl-what li{position:relative;padding-left:16px;color:var(--ink-soft);font-size:15px}
+.tl-what li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--accent)}
+
+/* ── two-col ──────────────────────────────────────────────────────────── */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{background:var(--panel);border:1px solid var(--hair);border-radius:3px;padding:20px}
+.card h3{font-size:14px;margin-bottom:12px}
+.kv{display:flex;flex-direction:column;gap:9px;font-size:14.5px;color:var(--ink-soft)}
+.kv b{color:var(--ink);font-weight:600;font-family:var(--mono);font-size:13px}
+
+/* ── footer ───────────────────────────────────────────────────────────── */
+footer{padding:52px 0 64px}
+.foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{
+  font-family:var(--mono);font-size:12.5px;text-decoration:none;color:var(--ink);
+  border:1px solid var(--hair);border-radius:2px;padding:8px 14px;background:var(--panel);
+  transition:border-color .15s,color .15s;
+}
+.links a:hover,.links a:focus-visible{border-color:var(--accent);color:var(--accent)}
+.fine{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="sig">TEJAS&nbsp;PANDYA <span>— quantitative research</span></div>
+    <nav class="mnav">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="label">Thesis</div>
+      <h1>Nothing is free. The work is <em>pricing the trade-off</em>.</h1>
+      <p class="lede">
+        I build quantitative models and then try to break them. The curve on the right is from
+        my optimal-execution engine: Almgren–Chriss carries about a third of TWAP's cost risk —
+        and roughly three and a half times its expected cost. It never beat TWAP on price. It was
+        never supposed to.
+      </p>
+      <div class="hero-meta">
+        <span class="chip">MS Financial Engineering · NYU Tandon '27</span>
+        <span class="chip">3 yrs market risk · Nomura</span>
+        <span class="chip">Python · C++20 · SQL</span>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <div class="fig-head">
+        <div>
+          <div class="label">Fig. 1 — Efficient frontier of execution</div>
+          <div class="fine" style="margin-top:3px">1,000,000 units · 5 days · 20 slices</div>
+        </div>
+        <div class="label" id="ff-hint">drag or hover</div>
+      </div>
+      <div class="fig-body"><canvas id="frontier" data-h="330" aria-label="Interactive efficient frontier of execution cost against risk"></canvas></div>
+      <div class="readout">
+        <div><span class="k">Risk aversion λ</span><span class="v" id="r-lam">—</span></div>
+        <div><span class="k">Expected cost</span><span class="v" id="r-cost">—</span></div>
+        <div><span class="k">Cost risk (σ)</span><span class="v" id="r-risk">—</span></div>
+        <div><span class="k">Half-life</span><span class="v" id="r-hl">—</span></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+<main>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Selected work</div>
+      <h2>Five results, including the ones that went the wrong way</h2>
+      <p>Every figure below is measured, reproducible from the linked repository, and carries its own limitation. Where a published effect failed to replicate, that is what is reported.</p>
+    </div>
+
+    <!-- 1 -->
+    <article class="finding">
+      <div class="stack">
+        <div class="label">01 — Signal research</div>
+        <h3>Averaging your alpha signals loses money</h3>
+        <p>Six cross-sectional signals on 496 S&amp;P 500 names, 2010–2026, scored by Spearman rank information coefficient with Newey–West corrected <em>t</em>-statistics. Only Amihud illiquidity cleared significance standing alone. Low volatility and the lottery signals came out with the <em>wrong sign</em> over the sample.</p>
+        <p>So the obvious move — z-score everything and average — produces a Sharpe of −0.63 and a 76% drawdown. Learning the combination under purged walk-forward CV with a one-month embargo, charging 10&nbsp;bps a side, reaches 0.89.</p>
+        <div class="caveat"><b>Limitation:</b> the universe is built from current index members extended backward, so it is survivor-only. That biases the individual signal rankings — the illiquid names that survived are the ones that grew. I would want point-in-time constituents before defending any single <em>t</em>-statistic.</div>
+        <a class="repo" href="https://github.com/6ixE11even/equity-xs-alpha">github.com/6ixE11even/equity-xs-alpha ↗</a>
+      </div>
+      <div class="stack">
+        <div class="tw"><table>
+          <thead><tr><th>Signal</th><th>Mean IC</th><th>IC IR</th><th>NW <em>t</em></th><th>Hit</th></tr></thead>
+          <tbody>
+            <tr class="hi"><td>amihud</td><td>0.031</td><td>1.11</td><td class="pos">5.17</td><td>62%</td></tr>
+            <tr><td>mom_12_1</td><td>0.009</td><td>0.17</td><td>0.78</td><td>55%</td></tr>
+            <tr><td>strev_1m</td><td>0.007</td><td>0.15</td><td>0.74</td><td>47%</td></tr>
+            <tr><td>skew_120d</td><td>−0.005</td><td>−0.18</td><td>−0.74</td><td>45%</td></tr>
+            <tr><td>max5</td><td>−0.015</td><td>−0.26</td><td class="neg">−1.17</td><td>48%</td></tr>
+            <tr><td>lowvol_60d</td><td>−0.024</td><td>−0.35</td><td class="neg">−1.55</td><td>46%</td></tr>
+          </tbody>
+        </table></div>
+        <div class="tw"><table>
+          <thead><tr><th>Portfolio</th><th>Ann. ret</th><th>Vol</th><th>Sharpe</th><th>Max DD</th></tr></thead>
+          <tbody>
+            <tr><td>amihud</td><td>8.4%</td><td>8.2%</td><td class="pos">1.03</td><td>−13%</td></tr>
+            <tr class="hi"><td>ml_combo</td><td>7.4%</td><td>8.4%</td><td class="pos">0.89</td><td>−8%</td></tr>
+            <tr><td>mom_12_1</td><td>2.9%</td><td>15.6%</td><td>0.19</td><td>−37%</td></tr>
+            <tr><td>equal_weight</td><td>−9.3%</td><td>14.8%</td><td class="neg">−0.63</td><td>−76%</td></tr>
+          </tbody>
+        </table></div>
+        <div class="fine">Standalone Amihud beat the learned combination on Sharpe. The combination's claim is a third of the drawdown, not a higher number.</div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="finding">
+      <div class="stack">
+        <div class="label">02 — Portfolio construction</div>
+        <h3>A conclusion that survives a 20× move in its own assumption</h3>
+        <p>Position sizing posed as a convex program carrying transaction costs <em>inside</em> the objective rather than subtracted afterwards: turnover as a rotated second-order cone, square-root market impact as a 3-D power cone, solved in MOSEK and agreeing with CLARABEL to 1e-3 across 496 solves per cost level.</p>
+        <p>The impact coefficient is <em>assumed</em>, not fitted from tick data. So the useful test was sweeping it. Drag the slider: the multi-period line barely moves across the whole 0–100&nbsp;bps range, while the frictionless book collapses.</p>
+        <div class="caveat"><b>Where it loses:</b> below roughly 12.5&nbsp;bps the frictionless book still wins on net Sharpe. The optimiser does not dominate everywhere, and the crossover is the honest headline.</div>
+        <a class="repo" href="https://github.com/6ixE11even/macro-regime-allocation">github.com/6ixE11even/macro-regime-allocation ↗</a>
+      </div>
+      <figure class="fig">
+        <div class="fig-head">
+          <div class="label">Fig. 2 — Net Sharpe vs. linear cost</div>
+          <div class="label"><span id="bps-val" class="num">10</span> bps</div>
+        </div>
+        <div class="fig-body"><canvas id="sweep" data-h="260" aria-label="Net Sharpe against linear transaction cost"></canvas></div>
+        <div class="readout">
+          <div><span class="k">Frictionless</span><span class="v" id="s-fr">—</span></div>
+          <div><span class="k">Cost-aware</span><span class="v" id="s-ca">—</span></div>
+          <div><span class="k">Multi-period</span><span class="v" id="s-mp">—</span></div>
+        </div>
+      </figure>
+    </article>
+
+    <!-- 3 -->
+    <article class="finding">
+      <div class="stack">
+        <div class="label">03 — Derivatives pricing</div>
+        <h3>Three methods, one interface, and the gap between them documented</h3>
+        <p>A dependency-free C++20 engine valuing the same contract three independent ways: closed-form Black–Scholes with analytic Greeks, Monte Carlo with exact terminal sampling, and a Crank–Nicolson finite-difference solver on a 400×400 grid — Thomas algorithm for Europeans, projected SOR on the early-exercise complementarity problem for Americans.</p>
+        <p>They agree to roughly 0.6% on an at-the-money call, pinned as regression tests. On barriers they don't, and that disagreement is the interesting part.</p>
+        <div class="caveat"><b>Where they diverge:</b> discretely-monitored Monte Carlo prices an up-and-out call at 3.5162 against the continuously-monitored finite-difference value of 3.3326. That is the discrete-versus-continuous monitoring gap. It shrinks as step count grows, and I report both rather than the flattering one.</div>
+        <a class="repo" href="https://github.com/6ixE11even/options-pricing-engine">github.com/6ixE11even/options-pricing-engine ↗</a>
+      </div>
+      <div class="stack">
+        <div class="tw"><table>
+          <thead><tr><th>Contract</th><th>Black–Scholes</th><th>Monte Carlo</th><th>Crank–Nicolson</th></tr></thead>
+          <tbody>
+            <tr><td>European call</td><td>10.4506</td><td>10.4794</td><td>10.4481</td></tr>
+            <tr><td>European put</td><td>5.5735</td><td>5.5616</td><td>5.5711</td></tr>
+            <tr class="hi"><td>American put</td><td>—</td><td>—</td><td>6.0875</td></tr>
+            <tr><td>Up-and-out call</td><td>—</td><td>3.5162</td><td>3.3326</td></tr>
+          </tbody>
+        </table></div>
+        <div class="cols" style="gap:14px">
+          <div class="card"><h3>Early-exercise premium</h3><div class="kv"><span><b>0.5139</b> — American 6.0875 less European 5.5735</span></div></div>
+          <div class="card"><h3>Test tolerance</h3><div class="kv"><span><b>&lt; $0.02</b> FDM · <b>&lt; $0.06</b> MC against a ~$10.45 price</span></div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="finding">
+      <div class="stack">
+        <div class="label">04 — Market microstructure</div>
+        <h3>The O(1) claim, with its fine print</h3>
+        <p>A deterministic limit order book and matching engine in C++20 enforcing strict price–time priority. Resting orders sit in intrusive doubly-linked lists per price level, so cancelling is a pointer splice rather than a search. A pre-warmed memory pool means the matching loop never allocates — which is what keeps the <em>tail</em> flat, not just the mean.</p>
+        <p>Prices are fixed-point unsigned integers with no floating point on the hot path, because float comparison in a price-priority book is a correctness defect rather than a slowdown.</p>
+        <div class="caveat"><b>The qualifier:</b> "O(1) for everything" isn't true. Inserting at a <em>new</em> price level is O(log L) — the ordered map has to track the touch. Four of five hot-path operations are O(1); the fifth fires whenever the book opens a level it didn't have.</div>
+        <a class="repo" href="https://github.com/6ixE11even/hft-matching-engine">github.com/6ixE11even/hft-matching-engine ↗</a>
+      </div>
+      <div class="stack">
+        <div class="tw"><table>
+          <thead><tr><th>Operation</th><th>Cost</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Add — existing level</td><td class="pos">O(1) avg</td><td>hash + tail append</td></tr>
+            <tr class="hi"><td>Add — new level</td><td class="neg">O(log L)</td><td>ordered-map insert</td></tr>
+            <tr><td>Cancel</td><td class="pos">O(1) avg</td><td>intrusive splice</td></tr>
+            <tr><td>Execute at best</td><td class="pos">O(1) / fill</td><td>FIFO head pop</td></tr>
+            <tr><td>Best bid / ask</td><td class="pos">O(1)</td><td>map front</td></tr>
+          </tbody>
+        </table></div>
+        <div class="cols" style="gap:14px">
+          <div class="card"><h3>Throughput</h3><div class="kv"><span><b>~26M</b> msg/s — Apple M2, dependency-free core</span><span><b>35M+</b> msg/s — Linux aarch64</span></div></div>
+          <div class="card"><h3>Not measured</h3><div class="kv"><span>Per-message <b>latency</b>. Only throughput was benchmarked, so no latency figure is quoted.</span></div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="finding">
+      <div class="stack">
+        <div class="label">05 — Rates</div>
+        <h3>P&amp;L attribution that has to add up</h3>
+        <p>A SOFR discount curve bootstrapped from par swap quotes by forward substitution with log-linear discount-factor interpolation, marking a ten-swap book of $257M notional from 2 to 30 years. Every input par swap reprices to under 1e-9.</p>
+        <p>Daily P&amp;L then decomposes into carry, roll-down and curve movement by projecting key-rate sensitivities onto orthogonal level, slope and curvature shapes — with convexity and off-shape misfit booked as an <em>explicit residual</em>, so the parts reconcile to a full revaluation rather than approximately. Forcing that additivity is what shows you where the linearisation breaks.</p>
+        <div class="caveat"><b>Scope:</b> a single SOFR discount curve. No multi-curve basis, no XVA, no cross-currency. The 1e-9 figure is internal self-consistency, not a comparison against any external pricer.</div>
+        <a class="repo" href="https://github.com/6ixE11even/sofr-swap-pnl-attribution">github.com/6ixE11even/sofr-swap-pnl-attribution ↗</a>
+      </div>
+      <figure class="fig">
+        <div class="fig-head">
+          <div class="label">Fig. 3 — Attribution, 5bp flattening sell-off</div>
+          <div class="label">two-day scenario</div>
+        </div>
+        <div class="fig-body"><canvas id="attr" data-h="250" aria-label="Profit and loss attribution waterfall"></canvas></div>
+        <div class="readout">
+          <div><span class="k">Reconciles to</span><span class="v">1e-6</span></div>
+          <div><span class="k">Total P&amp;L</span><span class="v neg">−171,840</span></div>
+        </div>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Experience</div>
+      <h2>Where the habits came from</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-when">05/26 — 08/26</div>
+        <div class="tl-what">
+          <h3>Quantitative Researcher — QWIM Industry Capstone</h3>
+          <div class="tl-org">NYU Tandon · industry-hosted, Bank of America</div>
+          <ul>
+            <li>Sole owner of one of five model tracks: a regime-conditioned risk-budgeting framework over equities, bonds, gold and commodities across a 27-year daily backtest.</li>
+            <li>Equal Risk Contribution by cyclical coordinate descent alongside hierarchical risk budgeting on Conditional Drawdown-at-Risk, evaluated through a four-layer ablation so every component's contribution is measured rather than asserted.</li>
+            <li>Sharpe improved monotonically layer by layer to 0.55 against 0.37 for 60/40, with maximum drawdown cut from −37% to −22% at roughly half the volatility.</li>
+            <li>Strictly point-in-time pipelines from first-release data vintages, with causality proven by automated look-ahead recomputation tests agreeing to 1e-16.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">08/22 — 07/25</div>
+        <div class="tl-what">
+          <h3>Senior Risk Analyst — Market Risk Infrastructure</h3>
+          <div class="tl-org">Nomura</div>
+          <ul>
+            <li>Owned the production lifecycle of VaR and sensitivity models across equities, rates, FX and commodities — daily backtesting and P&amp;L attribution.</li>
+            <li>Built Python anomaly-flagging that attributed each exception to its cause — upstream data, a stale mark, a booking error — rather than merely raising it, cutting investigation time roughly 40%.</li>
+            <li>Quarterly Basel 2.5 / FRTB stress testing and capital submissions, with rules-based validation reconciling to 100% against front-office pricing systems.</li>
+            <li>Led a three-person workstream that cut overnight batch runtime 35% and built the VaR and exception dashboard used by senior stakeholders.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">09/25 — 03/26</div>
+        <div class="tl-what">
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="tl-org">NYU Tandon · Finance and Risk Engineering</div>
+          <ul>
+            <li>C++ fundamentals, memory management and software design for Financial Software Laboratory.</li>
+            <li>Micro-, macro- and financial-economics instruction for Financial Economics.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Background</div>
+      <h2>Education &amp; tools</h2>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <h3>Education</h3>
+        <div class="kv">
+          <span><b>MS Financial Engineering</b><br>NYU Tandon · expected 05/27 · 3.9/4.0</span>
+          <span><b>MBA, Finance</b><br>NMIMS Mumbai · 2022 · 3.3/4.0</span>
+          <span><b>BTech Mechanical Engineering</b><br>VIT · 2020 · 8.9/10.0</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Languages &amp; libraries</h3>
+        <div class="kv">
+          <span><b>Python</b> — NumPy, Pandas, Polars, SciPy, statsmodels, scikit-learn, LightGBM, PyTorch, cvxpy</span>
+          <span><b>C++20</b> — STL, Boost, CMake, CTest</span>
+          <span><b>SQL</b> · MOSEK · Linux · Git · pytest</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Domains</h3>
+        <div class="kv">
+          <span>Market risk · VaR &amp; sensitivities · FRTB</span>
+          <span>Portfolio construction · risk budgeting · convex optimisation</span>
+          <span>Derivatives pricing · volatility calibration</span>
+          <span>Market microstructure · execution</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Certifications</h3>
+        <div class="kv">
+          <span><b>CFA Level I</b></span>
+          <span><b>C++ for Financial Engineering</b> — Baruch College</span>
+          <span><b>Bloomberg Market Concepts</b></span>
+          <span><b>CFI FMVA</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:22px">
+      <div class="label">Contact</div>
+      <h2>Twelve repositories, each with its tests and its limitations</h2>
+      <p>The five above are the ones worth reading first. The rest — SABR calibration, statistical-arbitrage pairs, LOB manipulation detection, commodity term structure, ML from first principles, prediction-market arbitrage — are on GitHub with the same treatment.</p>
+    </div>
+    <div class="foot">
+      <div class="links">
+        <a href="mailto:tbp8777@nyu.edu">tbp8777@nyu.edu</a>
+        <a href="https://github.com/6ixE11even">GitHub</a>
+        <a href="https://linkedin.com/in/tejaspandya9598">LinkedIn</a>
+      </div>
+      <div class="fine">New York, NY · seeking quantitative research &amp; risk roles, 2027</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- real data --------------------------------------------------- */
+  // optimal-execution: reports/frontier.csv (25 points, lambda sweep)
+  const FRONTIER = [
+    [1.0e-8,682914,2415746,5.45],[1.47e-8,684714,2385316,4.49],[2.15e-8,688354,2342704,3.71],
+    [3.16e-8,695524,2284217,3.06],[4.64e-8,709147,2206106,2.53],[6.81e-8,733835,2105501,2.09],
+    [1.0e-7,776004,1981744,1.72],[1.47e-7,843190,1837654,1.42],[2.15e-7,942471,1679753,1.17],
+    [3.16e-7,1078893,1516732,0.97],[4.64e-7,1255336,1356666,0.80],[6.81e-7,1474195,1204768,0.66],
+    [1.0e-6,1739341,1063089,0.55],[1.47e-6,2056685,931711,0.45],[2.15e-6,2433312,810015,0.37],
+    [3.16e-6,2876031,697364,0.31],[4.64e-6,3389685,593318,0.26],[6.81e-6,3975000,497696,0.21],
+    [1.0e-5,4625982,410587,0.18],[1.47e-5,5327451,332312,0.15],[2.15e-5,6054027,263324,0.13],
+    [3.16e-5,6772151,204022,0.11],[4.64e-5,7445780,154540,0.09],[6.81e-5,8044173,114571,0.08],
+    [1.0e-4,8548342,83320,0.07]
+  ];
+  const TWAP = {cost:681250, risk:2484955};
+  // macro-regime-allocation: cost sensitivity sweep, net Sharpe
+  const SWEEP = {bps:[0,10,15,25,50,100],
+    fr:[0.686,0.566,0.506,0.385,0.086,-0.467],
+    ca:[0.636,0.531,0.478,0.412,0.354,0.328],
+    mp:[0.498,0.520,0.521,0.509,0.464,0.523]};
+  // sofr-swap-pnl-attribution: two-day scenario
+  const ATTR = [["Carry",-1310],["Roll-down",11083],["Level",-89818],["Slope",-94549],["Curvature",23015],["Residual",-20262]];
+
+  const fmt = n => Math.abs(n)>=1e6 ? (n/1e6).toFixed(2)+"M" : Math.abs(n)>=1e3 ? Math.round(n/1e3)+"k" : String(Math.round(n));
+
+  function fit(cv){
+    // NOTE: assigning cv.height writes the height ATTRIBUTE. Reading that attribute back as the
+    // CSS height compounds by devicePixelRatio on every resize (330 -> 660 -> 1320 ...). The
+    // intended height therefore lives in data-h, which nothing ever writes to.
+    const cssH = parseInt(cv.dataset.h, 10) || 260;
+    const d = Math.min(window.devicePixelRatio || 1, 2);
+    const w = Math.max(1, Math.round(cv.getBoundingClientRect().width));
+    if (cv.width !== Math.round(w*d) || cv.height !== Math.round(cssH*d)) {
+      cv.width  = Math.round(w*d);
+      cv.height = Math.round(cssH*d);
+    }
+    cv.style.height = cssH + "px";
+    const c = cv.getContext("2d");
+    c.setTransform(d,0,0,d,0,0);
+    return {c, w, h:cssH};
+  }
+  function axes(c,P,w,h,grid){
+    c.strokeStyle=grid; c.lineWidth=1;
+    for(let i=0;i<=4;i++){
+      const y = P.t + (h-P.t-P.b)*i/4;
+      c.beginPath(); c.moveTo(P.l,Math.round(y)+.5); c.lineTo(w-P.r,Math.round(y)+.5); c.stroke();
+    }
+  }
+
+  /* ---- Fig 1 : efficient frontier ---------------------------------- */
+  const cvF = document.getElementById("frontier");
+  let sel = 12, hoverF = false;
+  function drawFrontier(){
+    const {c,w,h} = fit(cvF);
+    const P={l:52,r:16,t:14,b:34};
+    const xs = FRONTIER.map(d=>d[2]).concat([TWAP.risk]);
+    const ys = FRONTIER.map(d=>d[1]).concat([TWAP.cost]);
+    const x0=0, x1=Math.max(...xs)*1.06, y0=0, y1=Math.max(...ys)*1.06;
+    const X = v => P.l + (w-P.l-P.r)*(v-x0)/(x1-x0);
+    const Y = v => h-P.b - (h-P.t-P.b)*(v-y0)/(y1-y0);
+    c.clearRect(0,0,w,h);
+    axes(c,P,w,h,css("--grid"));
+
+    // frontier curve
+    c.beginPath();
+    FRONTIER.forEach((d,i)=>{ const x=X(d[2]),y=Y(d[1]); i?c.lineTo(x,y):c.moveTo(x,y); });
+    c.strokeStyle=css("--accent"); c.lineWidth=2; c.stroke();
+
+    // area under curve
+    c.lineTo(X(FRONTIER[FRONTIER.length-1][2]), Y(0)); c.lineTo(X(FRONTIER[0][2]), Y(0)); c.closePath();
+    c.fillStyle=css("--accent-soft"); c.fill();
+
+    // points
+    FRONTIER.forEach((d,i)=>{
+      c.beginPath(); c.arc(X(d[2]),Y(d[1]), i===sel?4.5:2, 0, 6.284);
+      c.fillStyle = i===sel ? css("--accent") : css("--muted"); c.fill();
+    });
+
+    // TWAP marker
+    const tx=X(TWAP.risk), ty=Y(TWAP.cost);
+    c.setLineDash([3,3]); c.strokeStyle=css("--muted"); c.lineWidth=1;
+    c.beginPath(); c.moveTo(tx,ty); c.lineTo(tx,h-P.b); c.stroke(); c.setLineDash([]);
+    c.beginPath(); c.arc(tx,ty,4,0,6.284); c.fillStyle=css("--ground");
+    c.fill(); c.strokeStyle=css("--ink"); c.lineWidth=1.6; c.stroke();
+    c.fillStyle=css("--ink"); c.font='600 11px '+css("--mono"); c.textAlign="right";
+    c.fillText("TWAP", tx-8, ty-7);
+
+    // selected crosshair
+    const sx=X(FRONTIER[sel][2]), sy=Y(FRONTIER[sel][1]);
+    c.setLineDash([2,3]); c.strokeStyle=css("--accent"); c.lineWidth=1;
+    c.beginPath(); c.moveTo(P.l,sy); c.lineTo(sx,sy); c.moveTo(sx,sy); c.lineTo(sx,h-P.b); c.stroke(); c.setLineDash([]);
+
+    // labels
+    c.fillStyle=css("--muted"); c.font='10px '+css("--mono");
+    c.textAlign="right";
+    for(let i=0;i<=4;i++){
+      const v = y1*(1-i/4), y = P.t + (h-P.t-P.b)*i/4;
+      c.fillText(fmt(v), P.l-9, y+3.5);
+    }
+    c.textAlign="left"; c.fillText("cost risk (σ) →", P.l, h-9);
+
+    const d=FRONTIER[sel];
+    document.getElementById("r-lam").textContent  = d[0].toExponential(1).replace("e-","e−");
+    document.getElementById("r-cost").textContent = fmt(d[1]);
+    document.getElementById("r-risk").textContent = fmt(d[2]);
+    document.getElementById("r-hl").textContent   = d[3].toFixed(2)+"d";
+  }
+  function pickF(ev){
+    const r = cvF.getBoundingClientRect();
+    const px = (ev.touches?ev.touches[0].clientX:ev.clientX) - r.left;
+    const P={l:52,r:16}; const w=r.width;
+    const xs = FRONTIER.map(d=>d[2]).concat([TWAP.risk]);
+    const x1 = Math.max(...xs)*1.06;
+    const val = (px-P.l)/(w-P.l-P.r)*x1;
+    let best=0, bd=Infinity;
+    FRONTIER.forEach((d,i)=>{ const dd=Math.abs(d[2]-val); if(dd<bd){bd=dd;best=i;} });
+    if(best!==sel){ sel=best; drawFrontier(); }
+  }
+  cvF.addEventListener("pointermove", e=>{ hoverF=true; pickF(e); });
+  cvF.addEventListener("pointerdown", pickF);
+  cvF.addEventListener("touchmove", e=>{ e.preventDefault(); pickF(e); }, {passive:false});
+
+  /* ---- Fig 2 : cost sweep ------------------------------------------ */
+  const cvS = document.getElementById("sweep");
+  let bps = 10;
+  function lerp(xs,ys,x){
+    if(x<=xs[0]) return ys[0];
+    for(let i=1;i<xs.length;i++) if(x<=xs[i]){
+      const t=(x-xs[i-1])/(xs[i]-xs[i-1]); return ys[i-1]+t*(ys[i]-ys[i-1]);
+    }
+    return ys[ys.length-1];
+  }
+  function drawSweep(){
+    const {c,w,h} = fit(cvS);
+    const P={l:44,r:14,t:14,b:30};
+    const y0=-0.6, y1=0.8;
+    const X = v => P.l + (w-P.l-P.r)*v/100;
+    const Y = v => h-P.b - (h-P.t-P.b)*(v-y0)/(y1-y0);
+    c.clearRect(0,0,w,h);
+    axes(c,P,w,h,css("--grid"));
+
+    // zero line
+    c.strokeStyle=css("--hair"); c.lineWidth=1;
+    c.beginPath(); c.moveTo(P.l,Math.round(Y(0))+.5); c.lineTo(w-P.r,Math.round(Y(0))+.5); c.stroke();
+
+    const series=[["fr",css("--neg"),"Frictionless"],["ca",css("--muted"),"Cost-aware"],["mp",css("--accent"),"Multi-period"]];
+    series.forEach(([k,col])=>{
+      c.beginPath();
+      SWEEP.bps.forEach((b,i)=>{ const x=X(b),y=Y(SWEEP[k][i]); i?c.lineTo(x,y):c.moveTo(x,y); });
+      c.strokeStyle=col; c.lineWidth = k==="mp"?2.4:1.6; c.stroke();
+      SWEEP.bps.forEach((b,i)=>{ c.beginPath(); c.arc(X(b),Y(SWEEP[k][i]),2.2,0,6.284); c.fillStyle=col; c.fill(); });
+    });
+
+    // cursor
+    const cx=X(bps);
+    c.setLineDash([2,3]); c.strokeStyle=css("--ink"); c.lineWidth=1;
+    c.beginPath(); c.moveTo(cx,P.t); c.lineTo(cx,h-P.b); c.stroke(); c.setLineDash([]);
+
+    c.fillStyle=css("--muted"); c.font='10px '+css("--mono");
+    c.textAlign="right"; c.fillText("0.8",P.l-6,Y(0.8)+3); c.fillText("0.0",P.l-6,Y(0)+3); c.fillText("−0.6",P.l-6,Y(-0.6)+3);
+    c.textAlign="center"; [0,25,50,100].forEach(b=>c.fillText(b,X(b),h-10));
+    c.textAlign="left"; c.fillText("linear cost (bps) →",P.l,h-10+0);
+
+    const g=k=>lerp(SWEEP.bps,SWEEP[k],bps).toFixed(3);
+    document.getElementById("s-fr").textContent=g("fr");
+    document.getElementById("s-ca").textContent=g("ca");
+    document.getElementById("s-mp").textContent=g("mp");
+    document.getElementById("s-fr").className="v "+(lerp(SWEEP.bps,SWEEP.fr,bps)<0?"neg":"");
+    document.getElementById("bps-val").textContent=Math.round(bps);
+  }
+  function pickS(ev){
+    const r=cvS.getBoundingClientRect();
+    const px=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left;
+    const P={l:44,r:14};
+    bps=Math.max(0,Math.min(100,(px-P.l)/(r.width-P.l-P.r)*100));
+    drawSweep();
+  }
+  cvS.addEventListener("pointermove",pickS);
+  cvS.addEventListener("pointerdown",pickS);
+  cvS.addEventListener("touchmove",e=>{e.preventDefault();pickS(e);},{passive:false});
+
+  /* ---- Fig 3 : attribution waterfall -------------------------------- */
+  const cvA = document.getElementById("attr");
+  function drawAttr(){
+    const {c,w,h} = fit(cvA);
+    const P={l:16,r:16,t:16,b:40};
+    const total = ATTR.reduce((a,b)=>a+b[1],0);
+    let run=0; const pts=[];
+    ATTR.forEach(([n,v])=>{ pts.push([n,run,run+v,v]); run+=v; });
+    const lo=Math.min(0,...pts.map(p=>Math.min(p[1],p[2])));
+    const hi=Math.max(0,...pts.map(p=>Math.max(p[1],p[2])));
+    const pad=(hi-lo)*0.12;
+    const Y=v=>h-P.b-(h-P.t-P.b)*(v-(lo-pad))/((hi+pad)-(lo-pad));
+    const bw=(w-P.l-P.r)/(ATTR.length+1);
+    c.clearRect(0,0,w,h);
+    c.strokeStyle=css("--hair"); c.lineWidth=1;
+    c.beginPath(); c.moveTo(P.l,Math.round(Y(0))+.5); c.lineTo(w-P.r,Math.round(Y(0))+.5); c.stroke();
+
+    pts.forEach((p,i)=>{
+      const x=P.l+bw*i+bw*0.18, bwid=bw*0.64;
+      const y1v=Y(p[1]), y2v=Y(p[2]);
+      c.fillStyle = p[3]>=0 ? css("--pos") : css("--neg");
+      c.globalAlpha=.85; c.fillRect(x,Math.min(y1v,y2v),bwid,Math.max(2,Math.abs(y2v-y1v))); c.globalAlpha=1;
+      c.fillStyle=css("--muted"); c.font='9.5px '+css("--mono"); c.textAlign="center";
+      c.save(); c.translate(x+bwid/2,h-P.b+13); c.fillText(p[0],0,0); c.restore();
+    });
+    // total bar
+    const tx=P.l+bw*ATTR.length+bw*0.18, tw=bw*0.64;
+    c.fillStyle=css("--accent");
+    c.fillRect(tx,Math.min(Y(0),Y(total)),tw,Math.max(2,Math.abs(Y(total)-Y(0))));
+    c.fillStyle=css("--ink"); c.font='600 9.5px '+css("--mono"); c.textAlign="center";
+    c.fillText("Total",tx+tw/2,h-P.b+13);
+  }
+
+  function drawAll(){ drawFrontier(); drawSweep(); drawAttr(); }
+  let raf = 0;
+  const ro = new ResizeObserver(()=>{ cancelAnimationFrame(raf); raf = requestAnimationFrame(drawAll); });
+  [cvF,cvS,cvA].forEach(el=>ro.observe(el.parentElement));
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>setTimeout(drawAll,40));
+  drawAll();
+
+  // gentle load sweep across the frontier, once, unless reduced motion
+  if(!reduce){
+    let i=0; const seq=setInterval(()=>{ sel=i; drawFrontier(); if(++i>16) clearInterval(seq); },38);
+  }
+})();
+</script>
