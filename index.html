@@ -370,7 +370,7 @@ footer{padding:64px 0 60px}
       <div class="rise">
         <div class="label">Tejas Pandya · Quantitative finance</div>
         <h1>Nothing is free. The work is <em>pricing the trade-off</em>.</h1>
-        <p class="lede">I build quantitative models end to end, then try to break them. My work spans the full stack of a quant team: a C++20 matching engine that clears ~21M messages a second, an execution model tested against a reinforcement-learning agent on 207,361 real bars, a portfolio optimizer that prices its own trading costs, and the VaR and FRTB numbers a regulator signs off on. Three years running market-risk infrastructure at Nomura taught me what production demands. The MS in Financial Engineering at NYU Tandon (3.84 GPA) gave me the theory to go further. I use point-in-time data, ship tests with every model, and report what failed alongside what worked.</p>
+        <p class="lede">I build quantitative models end to end, then try to break them. My work spans the full stack of a quant team: a C++20 matching engine that clears ~21M messages a second, an execution model tested against a reinforcement-learning agent on 207,361 real bars, a portfolio optimizer that prices its own trading costs, and the VaR and FRTB numbers a regulator signs off on. Three years running market-risk infrastructure at Nomura taught me what production demands. The MS in Financial Engineering at NYU Tandon (3.84 GPA) gave me the theory to go further. I lag every input to the date it was published, ship tests with every model, and report what failed alongside what worked.</p>
         <div class="status"><i></i>Open to full-time quant roles from 2027: research, trading, development, risk · New York</div>
         <div class="hero-meta">
           <span class="chip">MS Financial Engineering · NYU Tandon '27</span>
@@ -404,7 +404,7 @@ footer{padding:64px 0 60px}
       <article class="pcard rise">
         <div class="pcard-top"><span>Research</span><span>signals · inference · ML</span></div>
         <h4>Claims I can defend under scrutiny</h4>
-        <p>I have tested cross-sectional alpha on 495 names with Newey–West inference and false-discovery control, trained purged walk-forward learners, and audited my own regime model against NBER dating, finding it too jumpy. I treat every <em>t</em>-statistic as a claim that has to survive its own robustness check.</p>
+        <p>I have tested cross-sectional alpha on 495 names with Newey–West inference and false-discovery control, trained purged walk-forward learners, and found a look-ahead in my own published regime backtest, then measured what it had been worth. I treat every <em>t</em>-statistic as a claim that has to survive its own robustness check.</p>
         <div class="acts"><a class="repo" href="#w1">01</a><a class="repo" href="#w3">03</a><a class="repo" href="#w12">12</a><a class="repo" href="resume/tejas-pandya-quant-research.pdf" download>résumé ↓</a></div>
       </article>
       <article class="pcard rise d1">
@@ -440,15 +440,15 @@ footer{padding:64px 0 60px}
         <div>
           <div class="label">Market making · derivatives</div>
           <h3>Deribit BTC options market maker</h3>
-          <p>A C++20 engine that replays recorded Deribit order books, runs several quoting strategies side by side, simulates fills with latency, hedges delta on the BTC perpetual, and reports P&amp;L after fees and adverse selection. The same engine then runs live on paper. If a strategy loses money after costs, that is the result.</p>
+          <p>A C++20 engine that replays recorded Deribit order books, runs several quoting strategies side by side, simulates fills with latency, hedges delta on the BTC perpetual, and reports P&amp;L after fees and adverse selection. The same engine then runs live on paper. If a strategy loses money after costs, that is the result. Three milestones are done: the engine replays a full recorded day, 15.9M events, in 120 seconds, and per-expiry SABR fits on recorded data (β = 0.5, chosen over 1.0 across 98,799 fits) price every quote.</p>
         </div>
         <span class="wip">In progress</span>
       </div>
       <ol class="miles">
         <li class="done"><span class="tick"></span><b>M1 · Recorder</b>websocket recorder, book rebuild check, fee schedule</li>
-        <li class="cur"><b>M2 · C++ core</b>events, order books, exchange-time clock</li>
-        <li><b>M3 · Pricing</b>Black-76, IV solver, SABR fits reused</li>
-        <li><b>M4 · Simulator</b>fills, fees, accounts, first strategies</li>
+        <li class="done"><span class="tick"></span><b>M2 · C++ core</b>events, order books, exchange-time clock; a day replays in 120 s</li>
+        <li class="done"><span class="tick"></span><b>M3 · Pricing</b>Black-76, IV solver, SABR fits on recorded data</li>
+        <li class="cur"><b>M4 · Simulator</b>fills with latency, fees, accounts, first strategies</li>
         <li><b>M5 · Results</b>hedgers and the full strategy grid</li>
         <li><b>M6 · Live</b>paper-trading dashboard and demo video</li>
       </ol>
@@ -459,7 +459,7 @@ footer{padding:64px 0 60px}
       </div>
       <div class="now-foot">
         <span class="chip">C++20</span><span class="chip">Python</span><span class="chip">websockets</span>
-        <span class="chip">~120 options + BTC-PERPETUAL at 100 ms</span><span class="chip">code goes public at M6</span>
+        <span class="chip">~120 options + BTC-PERPETUAL at 100 ms</span><span class="chip">repository goes public at M6</span>
       </div>
     </div>
   </div>
@@ -504,7 +504,7 @@ footer{padding:64px 0 60px}
             <tr><td>mom_12_1</td><td>2.0%</td><td>16.0%</td><td>0.12</td><td>−36.7%</td></tr>
             <tr><td>equal_weight</td><td>−7.8%</td><td>13.7%</td><td class="neg">−0.57</td><td>−69.1%</td></tr>
           </tbody></table></div>
-        <div class="fine">139 out-of-sample months from 2015-02. Standalone Amihud beats the learned combination on Sharpe, on 0.14 turnover where the combination needs 1.07. The combination's claim is the drawdown and honest signal selection, not a higher number.</div>
+        <div class="fine">Tables as of September 3, 2026: 139 out-of-sample months from 2015-02. Standalone Amihud beats the learned combination on Sharpe, on 0.14 turnover where the combination needs 1.07. The combination's claim is the drawdown and honest signal selection, not a higher number.</div>
       </div>
     </article>
 
@@ -512,7 +512,7 @@ footer{padding:64px 0 60px}
       <div class="stack rise">
         <div class="label">02 — Execution</div>
         <h3>The optimal schedule, and the agent that rediscovered it</h3>
-        <p>I calibrated Almgren–Chriss liquidation to a live Deribit BTC-PERPETUAL book, taking volatility, volume and the touch spread from the feed and scaling impact as 1/ADV. On a 10%-of-ADV order, $41.4M over five days, it takes 38% off TWAP's cost risk and pays for it: 7.7&nbsp;bps of expected impact against 4.8.</p>
+        <p>I calibrated Almgren–Chriss liquidation to a live Deribit BTC-PERPETUAL book, taking volatility, volume and the touch spread from the feed and scaling impact as 1/ADV. On a 10%-of-ADV order, $49.0M over five days on the October 2, 2026 book, it takes 38% off TWAP's cost risk and pays for it: 7.5&nbsp;bps of expected impact against 4.7.</p>
         <p>I then trained a policy-gradient agent on 207,361 real five-minute bars, cut into 5,752 three-hour episodes and split chronologically, with every input estimated only from bars that closed before the episode opened. It was never shown the closed form and converged to it anyway: 0.060&nbsp;bps apart out of sample, paired <em>t</em> = 0.10.</p>
         <div class="caveat"><b>Nothing beat TWAP, the closed form included.</b> Almgren–Chriss costs 0.107&nbsp;bps more (<em>t</em> = 0.38), because its theoretical edge is 0.6% of cost against a 49&nbsp;bps per-episode standard deviation. What the agent did win was dispersion: 33.8&nbsp;bps against TWAP's 49.2.</div>
         <a class="repo" href="https://github.com/tejaspandya9598/optimal-execution">github.com/tejaspandya9598/optimal-execution ↗</a>
@@ -521,7 +521,7 @@ footer{padding:64px 0 60px}
         <figure class="fig">
           <div class="fig-head">
             <div><div class="label">Fig. 1 — Efficient frontier of execution</div>
-              <div class="fine" style="margin-top:4px">BTC-PERPETUAL · 538 contracts (10% of ADV, $41.4M) · 5 days · 20 slices</div></div>
+              <div class="fine" style="margin-top:4px">BTC-PERPETUAL, Oct 2, 2026 · 575 contracts (10% of ADV, $49.0M) · 5 days · 20 slices</div></div>
             <div class="label">drag or hover</div>
           </div>
           <div class="fig-body"><canvas id="frontier" data-h="300" aria-label="Interactive efficient frontier of execution cost against risk"></canvas></div>
@@ -546,15 +546,15 @@ footer{padding:64px 0 60px}
     <article class="finding" id="w3">
       <div class="stack rise">
         <div class="label">03 — Portfolio construction</div>
-        <h3>A conclusion that survives a 20× move in its own assumption</h3>
-        <p>Macro regimes from 120+ FRED-MD indicators drive a sector allocation. In developed markets the best regime-aware long-only book earns 11.2% a year against the equal-weight benchmark's 5.6%, after lagging every macro input by its publication delay. Position sizing is then posed as a convex program with transaction costs <em>inside</em> the objective: an L1 turnover penalty, a Cholesky second-order-cone risk term and a market-impact term, re-solved monthly over a receding horizon. Each cost level takes 494 solves, and every one reaches optimality.</p>
-        <p>The impact coefficient is <em>assumed</em>, not fitted from tick data. So the useful test was sweeping it. Drag the chart: the multi-period line barely moves across the whole 0–100&nbsp;bps range while the frictionless book collapses.</p>
-        <div class="caveat"><b>What changed when I fixed it:</b> this used to say the frictionless book wins below ~12.5&nbsp;bps. That crossover was an artifact — the backtest was allocating each month on macro data published the month after. With the publication lag applied, the multi-period book wins at every cost level in developed markets, and emerging still crosses, between 0 and 5&nbsp;bps. A finding about where two lines cross is a finding about the alpha feeding them.</div>
+        <h3>A look-ahead in my own published backtest, found and measured</h3>
+        <p>Macro regimes from 120+ FRED-MD indicators, reduced by PCA and clustered by two-step K-Means, drive an MSCI sector allocation with every macro input lagged by its publication delay. The published backtest fitted the regime detector once on 1959–2023 data, so every month it traded before 2024 carried a label fitted with hindsight. I refitted the detector every January on data available at the time. The headline Ridge book fell from a Sharpe of 0.65 to 0.35, below equal weight, while the simpler regime-mean forecaster held up as the best long-short book in both universes: 0.77 in developed markets and 0.73 in emerging.</p>
+        <p>Position sizing is a convex program with trading costs <em>inside</em> the objective: an L1 turnover penalty, a Cholesky second-order-cone risk term and a quadratic impact term, re-solved monthly over a receding horizon. The impact coefficient is <em>assumed</em>, not fitted, so the useful test is sweeping it. Under walk-forward regimes the multi-period book holds a net Sharpe between 0.50 and 0.70 from 0 to 100&nbsp;bps of linear cost, while the frictionless book falls to −0.28.</p>
+        <div class="caveat"><b>Where it does not hold:</b> in emerging markets the frictionless book still leads at 10&nbsp;bps, and the cost-aware book wins there only at high cost.</div>
         <div class="caveat"><b>Audit of my own detector:</b> against NBER dating and two alternatives on the same 798-month panel, the K-Means regime model calls a new regime every 3.8 months where NBER changes its mind every 44.7. It wins the cluster-quality scores only because they measure the Euclidean separation it optimizes. It is too jumpy, and that is the next thing to fix.</div>
         <a class="repo" href="https://github.com/tejaspandya9598/macro-regime-allocation">github.com/tejaspandya9598/macro-regime-allocation ↗</a>
       </div>
       <figure class="fig rise d1">
-        <div class="fig-head"><div class="label">Fig. 2 — Net Sharpe vs. linear cost</div>
+        <div class="fig-head"><div class="label">Fig. 2 — Net Sharpe vs. linear cost, walk-forward, developed</div>
           <div class="label"><span id="bps-val" class="num">10</span> bps</div></div>
         <div class="fig-body"><canvas id="sweep" data-h="270" aria-label="Net Sharpe against linear transaction cost"></canvas></div>
         <div class="readout">
@@ -642,7 +642,7 @@ footer{padding:64px 0 60px}
       <h3>Six more studies, held to the same standard</h3>
     </div>
     <div class="grid">
-      <article class="pcard riseNone" id="w7">
+      <article class="pcard rise" id="w7">
         <div class="pcard-top"><span>07</span><span>Volatility</span></div>
         <h4>SABR calibration to the live BTC smile</h4>
         <p>The calibration recovers α, ρ and ν to within 0.01 of the truth under 30bp of injected quote noise. On Deribit's 18SEP26 expiry it fits 21 strikes at 0.43 vol points RMSE, with the worst fit in the 95,000-strike wing.</p>
@@ -663,17 +663,17 @@ footer{padding:64px 0 60px}
         <div class="tech">Python · Streamlit · Plotly · EIA API</div>
         <div class="acts"><a class="repo" href="https://github.com/tejaspandya9598/commodity_futures_settlement_price_analysis">code ↗</a></div>
       </article>
-      <article class="pcard riseNone" id="w10">
+      <article class="pcard rise" id="w10">
         <div class="pcard-top"><span>10</span><span>Stat arb</span></div>
         <h4>A pairs backtester that rejects its own pairs</h4>
-        <p>Pairs are chosen on the first 60% of the sample only, and all 15 Engle–Granger tests go through Benjamini–Hochberg. On real Deribit data no pair survives out of sample. An earlier, better-looking result came from look-ahead and was deleted.</p>
+        <p>Five crypto perpetuals give 10 Engle–Granger tests, run on the first 60% of the sample only and put through Benjamini–Hochberg. Two pairs clear a raw <em>p</em> &lt; 0.05 and none survives the correction, and the raw survivors change with the training window. The honest result is that there is nothing to trade.</p>
         <div class="tech">Python · statsmodels · Deribit API</div>
         <div class="acts"><a class="repo" href="https://github.com/tejaspandya9598/stat-arb-backtester">code ↗</a></div>
       </article>
       <article class="pcard rise d1" id="w11">
         <div class="pcard-top"><span>11</span><span>Prediction markets</span></div>
-        <h4>The arbitrage that is really a bond</h4>
-        <p>A Polymarket scanner for multi-outcome baskets whose prices don't sum to 1. The 2028 nominee baskets sum to about 0.93: that is not free money but the cost of capital, roughly 3.4% a year for locking collateral up to 2028.</p>
+        <h4>An arbitrage scanner that checks the basket is whole</h4>
+        <p>It scans Polymarket multi-outcome events whose prices don't sum to 1, net of the quoted spread. A completeness bug once made 32 live legs of a 71-leg event, priced at 0.613, look like a 32% riskless arbitrage; two tests now pin the fix. On the October 2, 2026 snapshot, 8 of 200 events stay positive after the spread, the largest 1.7%.</p>
         <div class="tech">Python · Polymarket Gamma API</div>
         <div class="acts"><a class="repo" href="https://github.com/tejaspandya9598/prediction-markets">code ↗</a></div>
       </article>
@@ -696,13 +696,25 @@ footer{padding:64px 0 60px}
       <div class="tl-item rise">
         <div class="tl-when">05/26 — 08/26</div>
         <div class="tl-what">
-          <h3>Quantitative Research — QWIM Industry Capstone</h3>
-          <div class="tl-org">NYU Tandon · industry-hosted by Bank of America · five-person team</div>
+          <h3>Quantitative Researcher — QWIM Industry Capstone</h3>
+          <div class="tl-org">NYU Tandon · industry-hosted by Bank of America · five-person team, one model each</div>
           <ul>
-            <li>Studied regime-conditioned risk budgeting across SPX, investment-grade bonds, high yield, emerging markets and gold, 1999–2025: equal risk contribution and hierarchical ERC on Conditional Drawdown-at-Risk, evaluated as a four-level ablation so each layer's contribution is measured rather than asserted.</li>
-            <li>My workstream's result: the best variant lifts Sharpe to 0.55 against 0.37 for 60/40 and cuts maximum drawdown from −37% to −24% at about half the volatility. Absolute return is lower, 5.4% against 5.7% — the win is risk, not return.</li>
-            <li>Built the regime risk-budgeting tab in the team's Shiny dashboard and a Typst client-report exporter with 12 unit tests.</li>
-            <li>Found the test suite was running zero tests on macOS while reporting success; fixed 13 plugin and dependency faults to get 10,423 passing, with 22 pre-existing failures documented.</li>
+            <li>Owned the Regime Risk Budgeting model: equal risk contribution and hierarchical ERC on Conditional Drawdown-at-Risk over the S&amp;P 500, US aggregate bonds, gold and commodities, built as a four-level ablation (regime-conditioned covariance, quantile-regression tail covariance, then an LPPLS bubble-confidence tilt) so each layer's contribution is measured rather than asserted.</li>
+            <li>Over 1999–2025 the full model lifts Sharpe to 0.55 against 0.37 for 60/40 and cuts maximum drawdown from −37% to −24% at about half the volatility, and it holds 0.56 against 0.50 on the 2008–2025 robustness window. Absolute return is lower, 5.4% against 5.7%: the win is risk, not return.</li>
+            <li>Aligned each leading-indicator series to its first release using ALFRED vintages, so data enters on the date it was published. Where the vintage archive starts late, earlier values are revised data lagged 35 days.</li>
+            <li>Wrote the research pipeline (4,777 lines of Python, 45 tests), the team dashboard tab and a Typst client-report exporter. Found the team test suite was running zero tests on macOS while reporting success, and fixed 13 faults to get 10,423 passing, with 22 pre-existing failures documented.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item rise">
+        <div class="tl-when">09/25 — 10/26</div>
+        <div class="tl-what">
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="tl-org">NYU Tandon · Finance and Risk Engineering · three courses</div>
+          <ul>
+            <li>FRE-GY 7811 Value Investing (Fall 2026): grade exams and homework, answer students' questions in office hours, and help the professor prepare course materials.</li>
+            <li>FRE-GY 6811 Financial Software Laboratory (Spring 2026): graded exams and homework and resolved students' questions on C++ and financial-software concepts in office hours.</li>
+            <li>FRE-GY 6023 Financial Economics (Fall 2025): graded exams and homework and resolved students' questions on micro-, macro- and financial economics in office hours.</li>
           </ul>
         </div>
       </div>
@@ -717,17 +729,6 @@ footer{padding:64px 0 60px}
             <li>Built Python anomaly-flagging that attributed each exception to its cause — upstream data, a stale mark, a booking error — rather than merely raising it, cutting investigation time roughly 40%.</li>
             <li>Partnered with front-office and regulatory teams on quarterly Basel 2.5 / FRTB stress testing and capital submissions, with rules-based validation reconciling 100% against front-office systems.</li>
             <li>Led a three-person workstream that cut overnight batch runtime 35% and built the VaR and exception dashboard used by senior stakeholders.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tl-item rise">
-        <div class="tl-when">09/25 — 03/26</div>
-        <div class="tl-what">
-          <h3>Graduate Teaching Assistant</h3>
-          <div class="tl-org">NYU Tandon · Finance and Risk Engineering</div>
-          <ul>
-            <li>FRE-GY 6811 Financial Software Laboratory: taught C++ and financial-software concepts in labs and office hours.</li>
-            <li>FRE-GY 6023 Financial Economics: taught micro-, macro- and financial economics and graded coursework.</li>
           </ul>
         </div>
       </div>
@@ -801,19 +802,20 @@ const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const ease = t => t<0 ? 0 : t>1 ? 1 : 1-Math.pow(1-t,3);
 
 /* ── measured data ───────────────────────────────────────────────────── */
-// optimal-execution reports/frontier.csv @ 249e2c1: [lambda, E[cost] $, stdev $, half-life d]
-const FRONTIER=[[9.78e-7,110475,233068,0.25],[7.12e-7,96255,267166,0.29],[5.2e-7,83732,303294,0.34],
-[3.8e-7,72779,341555,0.40],[2.78e-7,63248,382091,0.46],[2.04e-7,54989,425068,0.54],
-[1.5e-7,47862,470637,0.63],[1.1e-7,41746,518849,0.73],[8.07e-8,36557,569484,0.85],
-[5.93e-8,32239,621857,1.00],[4.36e-8,28750,674712,1.16],[3.2e-8,26041,726333,1.36],
-[2.35e-8,24033,774868,1.58],[1.73e-8,22615,818735,1.84],[1.27e-8,21660,856914,2.15],
-[9.35e-9,21043,889030,2.51],[6.88e-9,20660,915272,2.92],[5.06e-9,20430,936205,3.41],
-[3.72e-9,20294,952583,3.98],[2.73e-9,20216,965206,4.64],[2.01e-9,20172,974822,5.41],
-[1.48e-9,20147,982081,6.31],[1.09e-9,20134,987525,7.35],[7.99e-10,20126,991586,8.58],
-[5.88e-10,20122,994605,10.0]];
-const TWAP={cost:20117,risk:1003140};
-const SWEEP={bps:[0,10,15,25,50,100],fr:[.359,.230,.165,.036,-.281,-.857],
-  ca:[.382,.498,.487,.507,.394,.282],mp:[.676,.644,.630,.583,.527,.508]};
+// optimal-execution reports/frontier.csv @ fb9e3d3 (Oct 2, 2026 book): [lambda, E[cost] $, stdev $, half-life d]
+const FRONTIER=[[8.56e-7,126333,266544,0.25],[6.23e-7,110071,305540,0.29],[4.54e-7,95749,346857,0.34],
+[3.32e-7,83222,390614,0.40],[2.43e-7,72323,436972,0.46],[1.78e-7,62878,486121,0.54],
+[1.31e-7,54726,538236,0.63],[9.6e-8,47733,593373,0.73],[7.05e-8,41798,651280,0.85],
+[5.18e-8,36859,711176,1.00],[3.81e-8,32870,771623,1.16],[2.8e-8,29772,830658,1.36],
+[2.06e-8,27475,886165,1.58],[1.51e-8,25853,936333,1.84],[1.11e-8,24761,979995,2.15],
+[8.18e-9,24056,1016724,2.51],[6.01e-9,23618,1046735,2.92],[4.42e-9,23354,1070675,3.41],
+[3.25e-9,23199,1089406,3.98],[2.39e-9,23110,1103842,4.64],[1.76e-9,23059,1114839,5.41],
+[1.29e-9,23031,1123140,6.31],[9.5e-10,23015,1129366,7.35],[6.99e-10,23007,1134011,8.58],
+[5.14e-10,23002,1137463,10.0]];
+// README table, 10% of ADV on the same book
+const TWAP={cost:22996,risk:1147224};
+// macro-regime-allocation results/developed/walkforward_costs.csv @ 0529ae7: measured at 0, 10 and 100 bps only
+const SWEEP={bps:[0,10,100],fr:[.591,.504,-.275],ca:[.664,.537,.356],mp:[.697,.616,.503]};
 // sofr-swap-pnl-attribution README @ a733a7a: 31 Aug -> 1 Sep 2026 on FRED Treasury CMT
 const ATTR=[["Carry",-353],["Roll-down",12336],["Level",-179601],["Slope",-62753],["Curvature",-4558],["Residual",-2176]];
 const fmt=n=>Math.abs(n)>=1e6?(n/1e6).toFixed(2)+"M":Math.abs(n)>=1e3?Math.round(n/1e3)+"k":String(Math.round(n));
@@ -941,8 +943,8 @@ function drawSweep(){
 
   c.fillStyle=CSSV("--muted");c.font=monoFont(9.5);
   c.textAlign="right";[[.8,"0.8"],[0,"0.0"],[-.6,"−0.6"]].forEach(([v,t])=>c.fillText(t,P.l-8,Y(v)+3.5));
-  c.textAlign="center";[0,25,50,100].forEach(b=>c.fillText(String(b),X(b),h-11));
-  c.textAlign="right";c.fillText("bps →",w-P.r,h-11);
+  c.textAlign="center";SWEEP.bps.forEach(b=>c.fillText(String(b),X(b),h-11));
+  c.textAlign="center";c.fillText("linear cost, bps",X(55),h-11);
 
   const g=k=>lerp(SWEEP.bps,SWEEP[k],bps).toFixed(3);
   document.getElementById("s-fr").textContent=g("fr");
@@ -954,7 +956,8 @@ function drawSweep(){
 function pickS(ev){
   if(animS<1)return;
   const r=cvS.getBoundingClientRect(),px=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left;
-  bps=Math.max(0,Math.min(100,(px-46)/(r.width-46-16)*100));drawSweep();
+  const raw=Math.max(0,Math.min(100,(px-46)/(r.width-46-16)*100));
+  bps=SWEEP.bps.reduce((b,v)=>Math.abs(v-raw)<Math.abs(b-raw)?v:b);drawSweep();
 }
 cvS.addEventListener("pointermove",pickS);
 cvS.addEventListener("pointerdown",pickS);
@@ -1094,8 +1097,9 @@ const JOURNEY={from:2016,to:2027.6,lanes:[
     [[2020.5,2022.3,"MBA Finance","NMIMS Mumbai"],[2025.6,2027.37,"MS Financial Engineering","NYU Tandon · 3.84"]]]],
   ["Work",[
     [[2022.58,2025.55,"Senior Risk Analyst","Nomura · market risk infrastructure"]],
-    [[2025.67,2026.25,"Graduate TA","NYU · C++, econ"]],
-    [[2026.33,2026.67,"QWIM capstone","regime risk budgeting"]]]]]};
+    [[2025.67,2026.25,"Graduate TA","NYU · econ, C++"]],
+    [[2026.33,2026.62,"QWIM capstone","regime risk budgeting"]],
+    [[2026.67,2026.81,"Graduate TA","NYU · value investing"]]]]]};
 function drawJourney(){
   const host=document.getElementById("gantt");if(!host)return;
   const span=JOURNEY.to-JOURNEY.from,pct=v=>((v-JOURNEY.from)/span*100);
