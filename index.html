@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Tejas Pandya — Quantitative Research</title>
-<meta name="description" content="Quantitative research portfolio — execution, portfolio construction, derivatives pricing and market microstructure. Every figure measured, every limitation stated.">
+<meta name="description" content="Tejas Pandya, quantitative researcher: MS Financial Engineering at NYU Tandon, three years of market risk at Nomura. Execution, portfolio construction, derivatives pricing and market microstructure. Every figure measured, every limitation stated.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="canonical" href="https://6ixe11even.github.io/">
+<link rel="canonical" href="https://tejaspandya.me/">
 
 <!--
   OpenGraph / Twitter card metadata. Read only by link scrapers (LinkedIn, Slack, X,
@@ -14,19 +14,19 @@
   zero-external-request property of this document is unaffected.
 -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://6ixe11even.github.io/">
+<meta property="og:url" content="https://tejaspandya.me/">
 <meta property="og:site_name" content="Tejas Pandya">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Tejas Pandya — Quantitative Research">
 <meta property="og:description" content="Quantitative research portfolio — execution, portfolio construction, derivatives pricing and market microstructure. Every figure measured, every limitation stated.">
-<meta property="og:image" content="https://6ixe11even.github.io/og.png">
+<meta property="og:image" content="https://tejaspandya.me/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Tejas Pandya — quantitative research. Nothing is free. The work is pricing the trade-off.">
 <meta name="author" content="Tejas Pandya">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://6ixe11even.github.io/og.png">
+<meta name="twitter:image" content="https://tejaspandya.me/og.png">
 <meta name="twitter:title" content="Tejas Pandya — Quantitative Research">
 <meta name="twitter:description" content="Quantitative research portfolio — execution, portfolio construction, derivatives pricing and market microstructure. Every figure measured, every limitation stated.">
 
@@ -52,7 +52,7 @@
   --ink:#12171E; --ink-soft:#3B4653; --muted:#6A7585;
   --hair:#DBE0E7; --hair-soft:#E7EBF0;
   --accent:#A96B12; --accent-2:#C98A2A; --accent-soft:rgba(169,107,18,.10);
-  --pos:#2C7A60; --neg:#AC4630;
+  --pos:#2C7A60; --neg:#AC4630; --pos-soft:rgba(44,122,96,.12);
   --grid:rgba(18,23,30,.06);
   --shadow:0 1px 2px rgba(18,23,30,.05),0 10px 30px -14px rgba(18,23,30,.16);
   --mono:"JBM",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -64,7 +64,7 @@
     --ink:#E8EDF4; --ink-soft:#B2BCCB; --muted:#7B8697;
     --hair:#242C39; --hair-soft:#1D232E;
     --accent:#E8A33D; --accent-2:#F0BC6E; --accent-soft:rgba(232,163,61,.12);
-    --pos:#4FB286; --neg:#D3654F;
+    --pos:#4FB286; --neg:#D3654F; --pos-soft:rgba(79,178,134,.14);
     --grid:rgba(232,237,244,.06);
     --shadow:0 1px 2px rgba(0,0,0,.45),0 14px 36px -18px rgba(0,0,0,.7);
   }
@@ -74,7 +74,7 @@
   --ink:#E8EDF4; --ink-soft:#B2BCCB; --muted:#7B8697;
   --hair:#242C39; --hair-soft:#1D232E;
   --accent:#E8A33D; --accent-2:#F0BC6E; --accent-soft:rgba(232,163,61,.12);
-  --pos:#4FB286; --neg:#D3654F;
+  --pos:#4FB286; --neg:#D3654F; --pos-soft:rgba(79,178,134,.14);
   --grid:rgba(232,237,244,.06);
   --shadow:0 1px 2px rgba(0,0,0,.45),0 14px 36px -18px rgba(0,0,0,.7);
 }
@@ -87,7 +87,7 @@ body{
   text-rendering:optimizeLegibility;
 }
 .wrap{max-width:1120px;margin:0 auto;padding:0 30px}
-@media(max-width:640px){.wrap{padding:0 18px}}
+@media(max-width:640px){.wrap{padding:0 16px}}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
@@ -102,7 +102,7 @@ p{max-width:66ch}
   letter-spacing:.19em;text-transform:uppercase;color:var(--muted);
 }
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.lede{color:var(--ink-soft);font-size:17.5px;line-height:1.66}
+.lede{color:var(--ink-soft);font-size:17px;line-height:1.66}
 .fine{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.05em}
 
 /* ── scroll choreography ──────────────────────────────────────────────── */
@@ -119,33 +119,73 @@ p{max-width:66ch}
 .masthead{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--hair);
   background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(12px) saturate(1.2)}
 .masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px}
-.sig{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.02em}
+.sig{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.02em;text-decoration:none}
 .sig span{color:var(--muted);font-weight:400;letter-spacing:.04em}
-.mnav{display:flex;gap:24px}
+@media(max-width:520px){.sig span{display:none}}
+.mnav{display:flex;gap:22px;margin-left:auto}
 .mnav a{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--muted);text-decoration:none;padding:5px 0;border-bottom:1.5px solid transparent;transition:color .18s,border-color .18s}
 .mnav a:hover,.mnav a:focus-visible{color:var(--ink);border-bottom-color:var(--accent)}
-@media(max-width:760px){.mnav{display:none}}
+@media(max-width:860px){.mnav{display:none}}
 #progress{position:absolute;left:0;bottom:-1px;height:1.5px;width:0;background:var(--accent);transition:width .1s linear}
 
+/* ── résumé menu ──────────────────────────────────────────────────────── */
+.rmenu{position:relative;font-family:var(--mono)}
+.rmenu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.04em;border:1px solid var(--hair);border-radius:6px;
+  padding:7px 12px;background:var(--panel);color:var(--ink);transition:border-color .18s,color .18s}
+.rmenu summary::-webkit-details-marker{display:none}
+.rmenu summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);transition:transform .18s}
+.rmenu[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.rmenu summary:hover,.rmenu[open] summary{border-color:var(--accent);color:var(--accent)}
+.rm-list{position:absolute;right:0;top:calc(100% + 8px);min-width:250px;z-index:40;background:var(--panel);
+  border:1px solid var(--hair);border-radius:8px;box-shadow:var(--shadow);padding:6px;display:flex;flex-direction:column}
+.rm-list a{display:flex;flex-direction:column;gap:1px;text-decoration:none;padding:9px 11px;border-radius:5px}
+.rm-list a b{font-size:12.5px}
+.rm-list a span{font-size:10.5px;color:var(--muted);letter-spacing:.03em}
+.rm-list a:hover,.rm-list a:focus-visible{background:var(--accent-soft)}
+.rm-list a:hover b{color:var(--accent)}
+.rmenu.up .rm-list{top:auto;bottom:calc(100% + 8px);left:0;right:auto}
+
 /* ── hero ─────────────────────────────────────────────────────────────── */
-.hero{padding:80px 0 46px;border-bottom:1px solid var(--hair);position:relative;overflow:hidden}
+.hero{padding:72px 0 46px;border-bottom:1px solid var(--hair);position:relative;overflow:hidden}
 #grain{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
 .hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:54px;align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}.hero{padding:46px 0 34px}}
-.hero h1{margin:16px 0 22px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr);gap:34px}.hero{padding:44px 0 34px}}
+.hero h1{margin:14px 0 22px}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:12px;
+  color:var(--ink-soft);border:1px solid var(--hair);border-radius:999px;padding:8px 14px 8px 12px;background:var(--panel)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--pos);flex:none;box-shadow:0 0 0 4px var(--pos-soft);
+  animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .chip{font-family:var(--mono);font-size:11px;letter-spacing:.04em;border:1px solid var(--hair);
   border-radius:2px;padding:6px 10px;color:var(--ink-soft);background:var(--panel)}
+
+.portrait{margin:0;justify-self:end;width:100%;max-width:340px}
+@media(max-width:900px){.portrait{justify-self:start;max-width:300px}}
+.portrait-frame{background:var(--panel);border:1px solid var(--hair);border-radius:6px;box-shadow:var(--shadow);overflow:hidden}
+#portrait{display:block;width:100%;aspect-ratio:4/5;cursor:crosshair;touch-action:pan-y}
+.portrait figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:9px}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:44px;border:1px solid var(--hair);
+  border-radius:6px;background:var(--panel);overflow:hidden}
+.stats div{padding:16px 18px;border-left:1px solid var(--hair-soft)}
+.stats div:first-child{border-left:none}
+.stats b{display:block;font-family:var(--mono);font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stats span{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div:nth-child(3){border-left:none}.stats div:nth-child(n+3){border-top:1px solid var(--hair-soft)}}
 
 /* ── figures ──────────────────────────────────────────────────────────── */
 .fig{background:var(--panel);border:1px solid var(--hair);border-radius:4px;box-shadow:var(--shadow);overflow:hidden}
 .fig-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
   padding:12px 15px;border-bottom:1px solid var(--hair-soft)}
 .fig-body{padding:14px 10px 10px}
-canvas{display:block;width:100%;touch-action:none}
+.fig-body canvas{display:block;width:100%;touch-action:none}
 .readout{display:flex;gap:24px;flex-wrap:wrap;padding:11px 15px 14px;border-top:1px solid var(--hair-soft);background:var(--panel-2)}
 .readout div{display:flex;flex-direction:column;gap:3px}
 .readout .k{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
@@ -157,11 +197,13 @@ section{padding:70px 0;border-bottom:1px solid var(--hair)}
 .sec-head{margin-bottom:38px}
 .sec-head h2{margin:11px 0 13px}
 .sec-head p{color:var(--ink-soft)}
+.sub-head{margin:62px 0 26px}
+.sub-head h3{margin-top:10px}
 
 .finding{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:38px;
   padding:36px 0;border-top:1px solid var(--hair-soft);align-items:start}
 .finding:first-of-type{border-top:none;padding-top:8px}
-@media(max-width:880px){.finding{grid-template-columns:1fr;gap:24px}}
+@media(max-width:880px){.finding{grid-template-columns:minmax(0,1fr);gap:24px}}
 .finding h3{margin:10px 0 13px}
 .finding p{color:var(--ink-soft);font-size:15.5px}
 .stack{display:flex;flex-direction:column;gap:15px}
@@ -185,79 +227,200 @@ td:first-child{color:var(--ink)}
 tbody tr.hi td{background:var(--accent-soft);color:var(--ink)}
 .pos{color:var(--pos)}.neg{color:var(--neg)}
 
+/* ── now building ─────────────────────────────────────────────────────── */
+.now{background:var(--panel);border:1px solid var(--hair);border-radius:6px;box-shadow:var(--shadow);padding:26px 28px}
+@media(max-width:640px){.now{padding:20px 18px}}
+.now-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.now-top h3{margin:8px 0 10px}
+.now-top p{color:var(--ink-soft);font-size:15.5px}
+.wip{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.miles{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:30px 0 8px;counter-reset:m}
+.miles li{position:relative;padding:34px 14px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.45}
+.miles li::before{counter-increment:m;content:counter(m);position:absolute;top:0;left:0;width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--hair);background:var(--panel);display:grid;place-items:center;font-size:10.5px;color:var(--muted);z-index:1}
+.miles li::after{content:"";position:absolute;top:11px;left:22px;right:0;height:1px;background:var(--hair)}
+.miles li:last-child::after{display:none}
+.miles b{display:block;color:var(--ink-soft);font-size:12px;margin-bottom:2px}
+.miles li.done::before{content:"";border-color:var(--pos);background:var(--pos-soft)}
+.miles li.done{--tick:var(--pos)}
+.miles li.done b{color:var(--ink)}
+.miles li.done::after{background:var(--pos)}
+.miles li.done span.tick{position:absolute;top:6px;left:8px;width:6px;height:10px;border-right:1.6px solid var(--pos);
+  border-bottom:1.6px solid var(--pos);transform:rotate(45deg);z-index:2}
+.miles li.cur::before{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.miles li.cur b{color:var(--accent)}
+@media(max-width:760px){
+  .miles{grid-template-columns:1fr;gap:14px}
+  .miles li{padding:1px 0 0 36px}
+  .miles li::after{top:24px;left:11px;right:auto;width:1px;height:calc(100% - 8px)}
+}
+.rec{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px solid var(--hair-soft)}
+.rec-bar{flex:1 1 220px;height:4px;border-radius:2px;background:var(--panel-2);overflow:hidden;min-width:160px}
+.rec-bar i{display:block;height:100%;width:0;background:var(--accent);transition:width 1s ease}
+.now-foot{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+
+/* ── more work ────────────────────────────────────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+@media(max-width:400px){.grid{grid-template-columns:1fr}}
+.pcard{background:var(--panel);border:1px solid var(--hair);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:10px;
+  transition:border-color .18s,transform .18s}
+.pcard:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--hair));transform:translateY(-2px)}
+.pcard-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+.pcard-top span:first-child{color:var(--muted)}
+.pcard-top span:last-child{color:var(--accent);font-weight:700}
+.pcard h4{font-family:var(--mono);font-size:14.5px;line-height:1.35;letter-spacing:-.01em}
+.pcard p{font-size:14px;color:var(--ink-soft);flex:1}
+.pcard .tech{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.pcard .acts{display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--hair-soft)}
+
+/* ── journey ──────────────────────────────────────────────────────────── */
+.gantt-wrap{overflow-x:auto;border:1px solid var(--hair);border-radius:6px;background:var(--panel);margin-bottom:46px}
+.gantt{position:relative;min-width:720px;padding:18px 22px 14px 118px}
+.g-lane{position:relative;border-top:1px solid var(--hair-soft)}
+.g-lane:first-of-type{border-top:none}
+.g-lane>.label{position:absolute;left:-100px;top:50%;transform:translateY(-50%)}
+.g-row{position:relative;height:50px}
+.g-bar{position:absolute;top:9px;height:32px;border-radius:4px;border:1px solid var(--hair);background:var(--panel-2);
+  font-family:var(--mono);font-size:11px;line-height:1.25;padding:4px 8px;overflow:visible;white-space:nowrap;display:flex;flex-direction:column;justify-content:center}
+.g-bar b{font-size:11.5px;color:var(--ink)}
+.g-bar span{color:var(--muted);font-size:10px}
+.g-bar.work{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 40%,var(--hair))}
+.g-lbl{position:absolute;top:9px;height:32px;display:flex;flex-direction:column;justify-content:center;
+  font-family:var(--mono);font-size:11px;line-height:1.25;white-space:nowrap}
+.g-lbl b{font-size:11.5px;color:var(--ink)}
+.g-lbl span{color:var(--muted);font-size:10px}
+.g-lbl.flip{text-align:right}
+.g-axis{position:relative;height:26px;margin-top:6px;border-top:1px solid var(--hair)}
+.g-axis span{position:absolute;top:6px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--muted)}
+.g-now{position:absolute;top:10px;bottom:34px;width:0;border-left:1.5px dashed var(--accent);pointer-events:none}
+.g-now::before{content:"now";position:absolute;top:-4px;left:6px;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.1em}
+
 /* ── timeline / cards ─────────────────────────────────────────────────── */
 .tl-item{display:grid;grid-template-columns:136px minmax(0,1fr);gap:28px;padding:24px 0;border-top:1px solid var(--hair-soft)}
 .tl-item:first-child{border-top:none}
-@media(max-width:700px){.tl-item{grid-template-columns:1fr;gap:9px}}
+@media(max-width:700px){.tl-item{grid-template-columns:minmax(0,1fr);gap:9px}}
 .tl-when{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
 .tl-org{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin:4px 0 10px}
 .tl-what ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .tl-what li{position:relative;padding-left:17px;color:var(--ink-soft);font-size:15px}
 .tl-what li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--accent)}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:30px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
 .card{background:var(--panel);border:1px solid var(--hair);border-radius:4px;padding:21px}
 .card h3{font-size:13.5px;letter-spacing:.02em;margin-bottom:13px}
 .kv{display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:var(--ink-soft)}
 .kv b{color:var(--ink);font-family:var(--mono);font-size:13px;font-weight:700}
 
-footer{padding:56px 0 70px}
-.foot{display:flex;flex-wrap:wrap;gap:15px;align-items:center;justify-content:space-between}
-.links{display:flex;gap:10px;flex-wrap:wrap}
-.links a{font-family:var(--mono);font-size:12.5px;text-decoration:none;color:var(--ink);
-  border:1px solid var(--hair);border-radius:3px;padding:9px 15px;background:var(--panel);
-  transition:border-color .18s,color .18s,transform .18s}
-.links a:hover,.links a:focus-visible{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+/* ── contact ──────────────────────────────────────────────────────────── */
+footer{padding:64px 0 60px}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:start;background:var(--panel);
+  border:1px solid var(--hair);border-radius:6px;box-shadow:var(--shadow);padding:28px}
+@media(max-width:700px){.contact{grid-template-columns:minmax(0,1fr);padding:22px 18px}}
+.clist{list-style:none;display:flex;flex-direction:column;gap:12px;font-family:var(--mono);font-size:13.5px}
+.clist li{display:grid;grid-template-columns:86px minmax(0,1fr);gap:12px;align-items:center}
+.clist .k{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.clist li>a{justify-self:start}
+.clist a{text-decoration:none;border-bottom:1px solid var(--hair);transition:color .18s,border-color .18s;overflow-wrap:anywhere}
+.clist a:hover,.clist a:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
+.copy{margin-left:10px;font:700 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  background:none;border:1px solid var(--hair);border-radius:4px;padding:3px 7px;cursor:pointer}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+.c-side{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.foot-line{margin-top:26px;text-align:center}
 </style>
 </head>
 <body>
 
 <header class="masthead">
   <div class="wrap">
-    <div class="sig">TEJAS&nbsp;PANDYA <span>— quantitative research</span></div>
+    <a class="sig" href="#top">TEJAS&nbsp;PANDYA <span>— quantitative research</span></a>
     <nav class="mnav">
-      <a href="#work">Work</a><a href="#experience">Experience</a>
+      <a href="#now">Now</a><a href="#work">Work</a><a href="#journey">Journey</a>
       <a href="#background">Background</a><a href="#contact">Contact</a>
     </nav>
+    <details class="rmenu">
+      <summary>Résumé</summary>
+      <div class="rm-list">
+        <a href="resume/tejas-pandya-quant-research.pdf" download><b>Research</b><span>quant research · signals · portfolios</span></a>
+        <a href="resume/tejas-pandya-quant-trading.pdf" download><b>Trading</b><span>execution · derivatives · market making</span></a>
+        <a href="resume/tejas-pandya-quant-development.pdf" download><b>Development</b><span>C++20 · Python · systems</span></a>
+        <a href="resume/tejas-pandya-risk.pdf" download><b>Risk</b><span>market risk · VaR · FRTB · CVA</span></a>
+      </div>
+    </details>
   </div>
   <div id="progress"></div>
 </header>
 
-<div class="hero">
+<div class="hero" id="top">
   <canvas id="grain" aria-hidden="true"></canvas>
-  <div class="wrap hero-grid">
-    <div class="rise">
-      <div class="label">Thesis</div>
-      <h1>Nothing is free. The work is <em>pricing the trade-off</em>.</h1>
-      <p class="lede">I build quantitative models and then try to break them. The curve on the right is from my optimal-execution engine, calibrated to a live Deribit book: Almgren–Chriss takes 38% off TWAP's cost risk and pays about 60% more to do it — 7.7&nbsp;bps against 4.8. It never beat TWAP on price. It was never supposed to.</p>
-      <div class="hero-meta">
-        <span class="chip">MS Financial Engineering · NYU Tandon '27</span>
-        <span class="chip">3 yrs market risk · Nomura</span>
-        <span class="chip">Python · C++20 · SQL</span>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="rise">
+        <div class="label">Tejas Pandya · Quantitative research</div>
+        <h1>Nothing is free. The work is <em>pricing the trade-off</em>.</h1>
+        <p class="lede">Quantitative researcher finishing an MS in Financial Engineering at NYU Tandon. Before that, three years at Nomura on market-risk infrastructure: VaR and sensitivity models across equities, rates, FX and commodities, and the data checks that kept them right. I build research the same way: point-in-time data, tests in CI, and results reported even when they don't flatter the idea.</p>
+        <div class="status"><i></i>Seeking full-time quant research, trading and risk roles from 2027 · New York</div>
+        <div class="hero-meta">
+          <span class="chip">MS Financial Engineering · NYU Tandon '27</span>
+          <span class="chip">Python · C++20 · SQL</span>
+        </div>
       </div>
+      <figure class="portrait rise d1">
+        <div class="portrait-frame"><canvas id="portrait" role="img" aria-label="Portrait of Tejas Pandya drawn by thousands of simulated random-walk paths"></canvas></div>
+        <figcaption><span class="fine" id="p-count">paths 0</span><span class="fine">hover to add paths</span></figcaption>
+      </figure>
     </div>
-    <figure class="fig rise d1">
-      <div class="fig-head">
-        <div><div class="label">Fig. 1 — Efficient frontier of execution</div>
-          <div class="fine" style="margin-top:4px">BTC-PERPETUAL · 538 units (10% of ADV, &dollar;41.6M) · 5 days · 20 slices</div></div>
-        <div class="label">drag or hover</div>
-      </div>
-      <div class="fig-body"><canvas id="frontier" data-h="330" aria-label="Interactive efficient frontier of execution cost against risk"></canvas></div>
-      <div class="readout">
-        <div><span class="k">Risk aversion λ</span><span class="v" id="r-lam">—</span></div>
-        <div><span class="k">Expected cost</span><span class="v" id="r-cost">—</span></div>
-        <div><span class="k">Cost risk σ</span><span class="v" id="r-risk">—</span></div>
-        <div><span class="k">Half-life</span><span class="v" id="r-hl">—</span></div>
-      </div>
-    </figure>
+    <div class="stats rise d2">
+      <div><b>3 yrs</b><span>market risk · Nomura</span></div>
+      <div><b>12</b><span>tested, CI'd repositories</span></div>
+      <div><b>3.84</b><span>MSFE GPA · NYU Tandon</span></div>
+      <div><b>~21M</b><span>msg/s · C++20 matching engine</span></div>
+    </div>
   </div>
 </div>
 
 <main>
+<section id="now">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div class="label">Now building</div>
+      <h2>Work in progress, reported as it goes</h2>
+    </div>
+    <div class="now rise">
+      <div class="now-top">
+        <div>
+          <div class="label">Market making · derivatives</div>
+          <h3>Deribit BTC options market maker</h3>
+          <p>A C++20 engine that replays recorded Deribit order books, runs several quoting strategies side by side, simulates fills with latency, hedges delta on the BTC perpetual, and reports P&amp;L after fees and adverse selection. The same engine then runs live on paper. If a strategy loses money after costs, that is the result.</p>
+        </div>
+        <span class="wip">In progress</span>
+      </div>
+      <ol class="miles">
+        <li class="done"><span class="tick"></span><b>M1 · Recorder</b>websocket recorder, book rebuild check, fee schedule</li>
+        <li class="cur"><b>M2 · C++ core</b>events, order books, exchange-time clock</li>
+        <li><b>M3 · Pricing</b>Black-76, IV solver, SABR fits reused</li>
+        <li><b>M4 · Simulator</b>fills, fees, accounts, first strategies</li>
+        <li><b>M5 · Results</b>hedgers and the full strategy grid</li>
+        <li><b>M6 · Live</b>paper-trading dashboard and demo video</li>
+      </ol>
+      <div class="rec">
+        <span class="label" id="rec-label">7-day recording</span>
+        <div class="rec-bar"><i id="rec-fill"></i></div>
+        <span class="fine" id="rec-text">2026-09-28 21:42 → 2026-10-05 21:42 UTC</span>
+      </div>
+      <div class="now-foot">
+        <span class="chip">C++20</span><span class="chip">Python</span><span class="chip">websockets</span>
+        <span class="chip">~120 options + BTC-PERPETUAL at 100 ms</span><span class="chip">code goes public at M6</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
     <div class="sec-head rise">
       <div class="label">Selected work</div>
-      <h2>Five results, including the ones that went the wrong way</h2>
+      <h2>Six results, including the ones that went the wrong way</h2>
       <p>Every figure below is measured, reproducible from the linked repository, and carries its own limitation. Where a published effect failed to replicate, that is what is reported.</p>
     </div>
 
@@ -265,41 +428,80 @@ footer{padding:56px 0 70px}
       <div class="stack rise">
         <div class="label">01 — Signal research</div>
         <h3>Averaging your alpha signals loses money</h3>
-        <p>Six cross-sectional signals on 494 S&amp;P 500 names, 2010–2026, scored by Spearman rank information coefficient with Newey–West corrected <em>t</em>-statistics. Only Amihud illiquidity cleared significance standing alone. Low volatility and the lottery signals came out with the <em>wrong sign</em>.</p>
-        <p>So the obvious move — z-score everything and average — produces a Sharpe of −0.58 and a 74% drawdown. Learning the combination under purged walk-forward CV with a one-month embargo, charging 10&nbsp;bps a side, reaches 0.77.</p>
-        <div class="caveat"><b>Limitation:</b> the universe is current index members extended backward, so it is survivor-only. That biases the signal rankings — the illiquid names that survived are the ones that grew. I would want point-in-time constituents before defending any single <em>t</em>-statistic.</div>
+        <p>Eight cross-sectional signals on 495 S&amp;P 500 names, 2010–2026: six from prices and two from the tone of 15,575 SEC filings. Each is scored by Spearman rank information coefficient with Newey–West <em>t</em>-statistics, then Benjamini–Hochberg across all eight tests. Only Amihud illiquidity survives. Low volatility and the lottery signals come out with the <em>wrong sign</em>.</p>
+        <p>So the obvious move, z-score everything and average, loses 7.8% a year at a Sharpe of −0.57. Learning the combination with LightGBM under purged walk-forward CV with a one-month embargo, charging 10&nbsp;bps a side, reaches 0.79 out of sample: within a quarter-point of the best single signal at two thirds of its drawdown.</p>
+        <div class="caveat"><b>The text factor was the filing calendar.</b> A 10-K reads more negative than a 10-Q (median net tone −0.0164 against −0.0097), so differencing tone across form types hands every 10-Q→10-K transition a −0.0081 "signal". Differencing within form takes its <em>t</em>-statistic from 1.37 to 0.46 and its standalone Sharpe from +0.35 to −0.14. Both versions stay in the repo.</div>
+        <div class="caveat"><b>Limitation:</b> the universe is current index members extended backward, so it is survivor-only. I would want point-in-time constituents before defending any single <em>t</em>-statistic.</div>
         <a class="repo" href="https://github.com/6ixE11even/equity-xs-alpha">github.com/6ixE11even/equity-xs-alpha ↗</a>
       </div>
       <div class="stack rise d1">
         <div class="tw"><table>
-          <thead><tr><th>Signal</th><th>Mean IC</th><th>IC IR</th><th>NW <em>t</em></th><th>Hit</th></tr></thead>
+          <thead><tr><th>Signal</th><th>Mean IC</th><th>NW <em>t</em></th><th>Hit</th><th>BH <em>q</em></th></tr></thead>
           <tbody>
-            <tr class="hi"><td>amihud</td><td>0.032</td><td>1.14</td><td class="pos">5.36</td><td>63%</td></tr>
-            <tr><td>mom_12_1</td><td>0.008</td><td>0.14</td><td>0.67</td><td>55%</td></tr>
-            <tr><td>strev_1m</td><td>0.006</td><td>0.13</td><td>0.61</td><td>48%</td></tr>
-            <tr><td>skew_120d</td><td>−0.005</td><td>−0.18</td><td>−0.74</td><td>46%</td></tr>
-            <tr><td>max5</td><td>−0.015</td><td>−0.26</td><td class="neg">−1.17</td><td>48%</td></tr>
-            <tr><td>lowvol_60d</td><td>−0.023</td><td>−0.33</td><td class="neg">−1.51</td><td>47%</td></tr>
+            <tr class="hi"><td>amihud</td><td>0.032</td><td class="pos">5.32</td><td>62%</td><td class="pos">0.000</td></tr>
+            <tr><td>tone_chg_naive</td><td>0.007</td><td>1.37</td><td>57%</td><td>0.46</td></tr>
+            <tr><td>mom_12_1</td><td>0.008</td><td>0.69</td><td>54%</td><td>0.60</td></tr>
+            <tr><td>strev_1m</td><td>0.006</td><td>0.64</td><td>48%</td><td>0.60</td></tr>
+            <tr><td>tone_chg</td><td>0.003</td><td>0.46</td><td>55%</td><td>0.65</td></tr>
+            <tr><td>skew_120d</td><td>−0.004</td><td>−0.70</td><td>46%</td><td>0.60</td></tr>
+            <tr><td>max5</td><td>−0.015</td><td class="neg">−1.16</td><td>48%</td><td>0.49</td></tr>
+            <tr><td>lowvol_60d</td><td>−0.023</td><td class="neg">−1.50</td><td>47%</td><td>0.46</td></tr>
           </tbody></table></div>
         <div class="tw"><table>
-          <thead><tr><th>Portfolio</th><th>Ann. ret</th><th>Vol</th><th>Sharpe</th><th>Max DD</th></tr></thead>
+          <thead><tr><th>Portfolio, net</th><th>Ann. ret</th><th>Vol</th><th>Sharpe</th><th>Max DD</th></tr></thead>
           <tbody>
-            <tr><td>amihud</td><td>8.7%</td><td>8.1%</td><td class="pos">1.07</td><td>−13.5%</td></tr>
-            <tr class="hi"><td>ml_combo</td><td>6.6%</td><td>8.6%</td><td class="pos">0.77</td><td>−9.8%</td></tr>
-            <tr><td>mom_12_1</td><td>1.9%</td><td>15.9%</td><td>0.12</td><td>−36.3%</td></tr>
-            <tr><td>equal_weight</td><td>−8.7%</td><td>15.0%</td><td class="neg">−0.58</td><td>−74.1%</td></tr>
+            <tr><td>amihud</td><td>8.5%</td><td>8.2%</td><td class="pos">1.03</td><td>−13.5%</td></tr>
+            <tr class="hi"><td>ml_combo</td><td>7.3%</td><td>9.3%</td><td class="pos">0.79</td><td>−9.1%</td></tr>
+            <tr><td>mom_12_1</td><td>2.0%</td><td>16.0%</td><td>0.12</td><td>−36.7%</td></tr>
+            <tr><td>equal_weight</td><td>−7.8%</td><td>13.7%</td><td class="neg">−0.57</td><td>−69.1%</td></tr>
           </tbody></table></div>
-        <div class="fine">Standalone Amihud beat the learned combination on Sharpe, and does it on 0.14 turnover where the combination needs 1.12. The combination's claim is the drawdown and the honesty of the selection, not a higher number.</div>
+        <div class="fine">139 out-of-sample months from 2015-02. Standalone Amihud beats the learned combination on Sharpe, on 0.14 turnover where the combination needs 1.07. The combination's claim is the drawdown and honest signal selection, not a higher number.</div>
       </div>
     </article>
 
     <article class="finding">
       <div class="stack rise">
-        <div class="label">02 — Portfolio construction</div>
+        <div class="label">02 — Execution</div>
+        <h3>The optimal schedule, and the agent that rediscovered it</h3>
+        <p>Almgren–Chriss liquidation calibrated to a live Deribit BTC-PERPETUAL book, with volatility, volume and the touch spread taken from the feed and impact scaled as 1/ADV. On a 10%-of-ADV order, $41.4M over five days, it takes 38% off TWAP's cost risk and pays for it: 7.7&nbsp;bps of expected impact against 4.8.</p>
+        <p>Then a policy-gradient agent, trained on 207,361 real five-minute bars cut into 5,752 three-hour episodes and split chronologically, with every input estimated only from bars that closed before the episode opened. It was never shown the closed form and converged to it anyway: 0.060&nbsp;bps apart out of sample, paired <em>t</em> = 0.10.</p>
+        <div class="caveat"><b>Nothing beat TWAP, the closed form included.</b> Almgren–Chriss costs 0.107&nbsp;bps more (<em>t</em> = 0.38), because its theoretical edge is 0.6% of cost against a 49&nbsp;bps per-episode standard deviation. What the agent did win was dispersion: 33.8&nbsp;bps against TWAP's 49.2.</div>
+        <a class="repo" href="https://github.com/6ixE11even/optimal-execution">github.com/6ixE11even/optimal-execution ↗</a>
+      </div>
+      <div class="stack rise d1">
+        <figure class="fig">
+          <div class="fig-head">
+            <div><div class="label">Fig. 1 — Efficient frontier of execution</div>
+              <div class="fine" style="margin-top:4px">BTC-PERPETUAL · 538 contracts (10% of ADV, $41.4M) · 5 days · 20 slices</div></div>
+            <div class="label">drag or hover</div>
+          </div>
+          <div class="fig-body"><canvas id="frontier" data-h="300" aria-label="Interactive efficient frontier of execution cost against risk"></canvas></div>
+          <div class="readout">
+            <div><span class="k">Risk aversion λ</span><span class="v" id="r-lam">—</span></div>
+            <div><span class="k">Expected cost</span><span class="v" id="r-cost">—</span></div>
+            <div><span class="k">Cost risk σ</span><span class="v" id="r-risk">—</span></div>
+            <div><span class="k">Half-life</span><span class="v" id="r-hl">—</span></div>
+          </div>
+        </figure>
+        <div class="tw"><table>
+          <thead><tr><th>Out of sample, bps</th><th>Shortfall</th><th>Risk</th><th>Objective</th><th>σ / episode</th></tr></thead>
+          <tbody>
+            <tr class="hi"><td>TWAP</td><td>1.499</td><td>0.047</td><td class="pos">1.546</td><td>49.2</td></tr>
+            <tr><td>Almgren–Chriss</td><td>1.623</td><td>0.030</td><td>1.653</td><td>39.8</td></tr>
+            <tr><td>REINFORCE agent</td><td>1.686</td><td>0.026</td><td>1.713</td><td class="pos">33.8</td></tr>
+          </tbody></table></div>
+        <div class="fine">1,726 test episodes. A control variate, subtracting TWAP's cost on the identical price path, is what made the agent trainable: 1.993 → 1.713&nbsp;bps. Gradients are hand-derived in NumPy and checked against central differences in CI.</div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="stack rise">
+        <div class="label">03 — Portfolio construction</div>
         <h3>A conclusion that survives a 20× move in its own assumption</h3>
-        <p>Position sizing posed as a convex program carrying transaction costs <em>inside</em> the objective rather than subtracted afterwards: turnover as a rotated second-order cone, square-root market impact as a 3-D power cone, MOSEK-first with an open-source conic fallback; on this machine CLARABEL solved all 494 per cost level, none failing to reach optimality.</p>
+        <p>Macro regimes from 120+ FRED-MD indicators drive a sector allocation. In developed markets the best regime-aware long-only book earns 11.2% a year against the equal-weight benchmark's 5.6%, after lagging every macro input by its publication delay. Position sizing is then posed as a convex program with transaction costs <em>inside</em> the objective: an L1 turnover penalty, a Cholesky second-order-cone risk term and a market-impact term, re-solved monthly over a receding horizon. 494 solves per cost level, all reaching optimality.</p>
         <p>The impact coefficient is <em>assumed</em>, not fitted from tick data. So the useful test was sweeping it. Drag the chart: the multi-period line barely moves across the whole 0–100&nbsp;bps range while the frictionless book collapses.</p>
         <div class="caveat"><b>What changed when I fixed it:</b> this used to say the frictionless book wins below ~12.5&nbsp;bps. That crossover was an artefact — the backtest was allocating each month on macro data published the month after. With the publication lag applied the multi-period book wins at every cost level in developed markets, and emerging still crosses, between 0 and 5&nbsp;bps. A finding about where two lines cross is a finding about the alpha feeding them.</div>
+        <div class="caveat"><b>Audit of my own detector:</b> against NBER dating and two alternatives on the same 798-month panel, the K-Means regime model calls a new regime every 3.8 months where NBER changes its mind every 44.7. It wins the cluster-quality scores only because they measure the Euclidean separation it optimises. It is too jumpy, and that is the next thing to fix.</div>
         <a class="repo" href="https://github.com/6ixE11even/macro-regime-allocation">github.com/6ixE11even/macro-regime-allocation ↗</a>
       </div>
       <figure class="fig rise d1">
@@ -316,11 +518,32 @@ footer{padding:56px 0 70px}
 
     <article class="finding">
       <div class="stack rise">
-        <div class="label">03 — Derivatives pricing</div>
+        <div class="label">04 — Rates &amp; counterparty risk</div>
+        <h3>P&amp;L attribution that has to add up, and a CVA that tests its own assumption</h3>
+        <p>A discount curve bootstrapped from FRED Treasury constant-maturity par yields, marking a ten-swap, $255M book from 2 to 30 years. Every par instrument reprices to under 1e-9. Daily P&amp;L splits into carry, roll-down and level, slope and curvature moves through key-rate durations, with convexity booked as an <em>explicit residual</em> so the parts reconcile to a full revaluation.</p>
+        <p>Then counterparty exposure: 8,478 joint daily observations of the curve and Moody's credit spreads, 1986–2026, block-bootstrapped into 20,000 thirty-year paths. Peak EPE $2.35M, peak PFE $13.5M. Wrong-way risk was priced by experiment: resampling rates and credit from the same days keeps their −0.38 correlation, resampling them from different days destroys it. The coupling is worth $89,553, 16.9% of CVA, and both runs share their curve paths bit-for-bit, so the difference cannot be Monte Carlo noise.</p>
+        <div class="caveat"><b>Scope:</b> a Treasury curve, not SOFR fixings (ICE swap rates are licensed); one curve; a historical CVA rather than a risk-neutral desk reserve; no CSA. On a quiet day the residual is 0.9% of P&amp;L. On 16 April 1980, when the curve fell 51–76bp, it is 9% — the honest limit of a first-order attribution.</div>
+        <a class="repo" href="https://github.com/6ixE11even/sofr-swap-pnl-attribution">github.com/6ixE11even/sofr-swap-pnl-attribution ↗</a>
+      </div>
+      <figure class="fig rise d1">
+        <div class="fig-head"><div class="label">Fig. 3 — Attribution, 31 Aug → 1 Sep 2026</div>
+          <div class="label">2–6bp sell-off</div></div>
+        <div class="fig-body"><canvas id="attr" data-h="260" aria-label="Profit and loss attribution waterfall"></canvas></div>
+        <div class="readout">
+          <div><span class="k">Reconciles to</span><span class="v">1e-6</span></div>
+          <div><span class="k">Total P&amp;L</span><span class="v neg">−237,106</span></div>
+          <div><span class="k">Wrong-way risk</span><span class="v">+16.9% CVA</span></div>
+        </div>
+      </figure>
+    </article>
+
+    <article class="finding">
+      <div class="stack rise">
+        <div class="label">05 — Derivatives pricing</div>
         <h3>Three methods, one interface, and the gap between them documented</h3>
         <p>A dependency-free C++20 engine valuing the same contract three independent ways: closed-form Black–Scholes with analytic Greeks, Monte Carlo with exact terminal sampling, and a Crank–Nicolson finite-difference solver on a 400×400 grid — Thomas algorithm for Europeans, projected SOR on the early-exercise complementarity problem for Americans.</p>
         <p>They agree to roughly 0.6% on an at-the-money call, pinned as regression tests. On barriers they don't, and that disagreement is the interesting part.</p>
-        <div class="caveat"><b>Where they diverge:</b> discretely-monitored Monte Carlo prices an up-and-out call at 3.5162 against the continuously-monitored finite-difference value of 3.3326. That is the discrete-versus-continuous monitoring gap. It shrinks as step count grows, and I report both rather than the flattering one.</div>
+        <div class="caveat"><b>Where they diverge:</b> checking a barrier only at each time step misses crossings between samples, so discretely-monitored Monte Carlo overprices a 50-step up-and-out by more than $0.25 against the PDE. Weighting each step by the Brownian-bridge survival probability brings it within $0.05 at the same 50 steps, where naive monitoring is still wrong at 3,200. Both are asserted in tests.</div>
         <a class="repo" href="https://github.com/6ixE11even/options-pricing-engine">github.com/6ixE11even/options-pricing-engine ↗</a>
       </div>
       <div class="stack rise d1">
@@ -341,7 +564,7 @@ footer{padding:56px 0 70px}
 
     <article class="finding">
       <div class="stack rise">
-        <div class="label">04 — Market microstructure</div>
+        <div class="label">06 — Market microstructure</div>
         <h3>The O(1) claim, with its fine print</h3>
         <p>A deterministic limit order book and matching engine in C++20 enforcing strict price–time priority. Resting orders sit in intrusive doubly-linked lists per price level, so cancelling is a pointer splice rather than a search. A pre-warmed memory pool means the matching loop never allocates — which is what keeps the <em>tail</em> flat, not just the mean.</p>
         <p>Prices are fixed-point unsigned integers with no floating point on the hot path, because float comparison in a price-priority book is a correctness defect rather than a slowdown.</p>
@@ -365,42 +588,72 @@ footer{padding:56px 0 70px}
       </div>
     </article>
 
-    <article class="finding">
-      <div class="stack rise">
-        <div class="label">05 — Rates</div>
-        <h3>P&amp;L attribution that has to add up</h3>
-        <p>A SOFR discount curve bootstrapped from par swap quotes by forward substitution with log-linear discount-factor interpolation, marking a ten-swap book of $255M notional from 2 to 30 years. Every input par swap reprices to under 1e-9.</p>
-        <p>Daily P&amp;L then decomposes into carry, roll-down and curve movement by projecting key-rate sensitivities onto orthogonal level, slope and curvature shapes — with convexity and off-shape misfit booked as an <em>explicit residual</em>, so the parts reconcile to a full revaluation rather than approximately.</p>
-        <div class="caveat"><b>Scope:</b> a single SOFR discount curve. No multi-curve basis, no XVA, no cross-currency. The 1e-9 figure is internal self-consistency, not a comparison against any external pricer.</div>
-        <a class="repo" href="https://github.com/6ixE11even/sofr-swap-pnl-attribution">github.com/6ixE11even/sofr-swap-pnl-attribution ↗</a>
-      </div>
-      <figure class="fig rise d1">
-        <div class="fig-head"><div class="label">Fig. 3 — Attribution, 5bp flattening sell-off</div>
-          <div class="label">two-day scenario</div></div>
-        <div class="fig-body"><canvas id="attr" data-h="260" aria-label="Profit and loss attribution waterfall"></canvas></div>
-        <div class="readout">
-          <div><span class="k">Reconciles to</span><span class="v">1e-6</span></div>
-          <div><span class="k">Total P&amp;L</span><span class="v neg">−171,840</span></div>
-        </div>
-      </figure>
-    </article>
+    <div class="sub-head rise">
+      <div class="label">More work</div>
+      <h3>Six more repositories, same treatment</h3>
+    </div>
+    <div class="grid">
+      <article class="pcard rise">
+        <div class="pcard-top"><span>07</span><span>Volatility</span></div>
+        <h4>SABR calibration to the live BTC smile</h4>
+        <p>Recovers α, ρ and ν within 0.01 of truth under 30bp of injected quote noise. On Deribit's 18SEP26 expiry it fits 21 strikes at 0.43 vol points RMSE, worst in the 95,000 wing.</p>
+        <div class="tech">Python · SciPy · Deribit API</div>
+        <div class="acts"><a class="repo" href="https://github.com/6ixE11even/sabr-vol-calibration">code ↗</a></div>
+      </article>
+      <article class="pcard rise d1">
+        <div class="pcard-top"><span>08</span><span>Surveillance</span></div>
+        <h4>Spoofing and layering detection without labels</h4>
+        <p>There are no labels, so it ranks rather than classifies. Isolation Forest and ECOD over 27 order-flow features agree on 76% of their top-5% flags; the ensemble exists for the other quarter.</p>
+        <div class="tech">Python · ECOD · Isolation Forest · PyTorch</div>
+        <div class="acts"><a class="repo" href="https://github.com/6ixE11even/lob-market-manipulation-detection">code ↗</a></div>
+      </article>
+      <article class="pcard rise d2">
+        <div class="pcard-top"><span>09</span><span>Commodities</span></div>
+        <h4>34 years of futures settlement anomalies</h4>
+        <p>WTI and Henry Hub from EIA, 1990–2024: 112 flagged events, 79 corroborated by an Isolation Forest. It had been blind to the −$37.63 WTI print, because a log transform turned it into NaN.</p>
+        <div class="tech">Python · Streamlit · Plotly · EIA API</div>
+        <div class="acts"><a class="repo" href="https://github.com/6ixE11even/commodity_futures_settlement_price_analysis">code ↗</a></div>
+      </article>
+      <article class="pcard rise">
+        <div class="pcard-top"><span>10</span><span>Stat arb</span></div>
+        <h4>A pairs backtester that rejects its own pairs</h4>
+        <p>Pairs chosen on the first 60% of the sample only, and all 15 Engle–Granger tests put through Benjamini–Hochberg. On real Deribit data no pair survives out of sample. An earlier, better-looking result came from look-ahead and was deleted.</p>
+        <div class="tech">Python · statsmodels · Deribit API</div>
+        <div class="acts"><a class="repo" href="https://github.com/6ixE11even/stat-arb-backtester">code ↗</a></div>
+      </article>
+      <article class="pcard rise d1">
+        <div class="pcard-top"><span>11</span><span>Prediction markets</span></div>
+        <h4>The arbitrage that is really a bond</h4>
+        <p>A Polymarket scanner for multi-outcome baskets whose prices don't sum to 1. The 2028 nominee baskets sum to about 0.93: that is not free money but the cost of capital, roughly 3.4% a year for locking collateral up to 2028.</p>
+        <div class="tech">Python · Polymarket Gamma API</div>
+        <div class="acts"><a class="repo" href="https://github.com/6ixE11even/prediction-markets">code ↗</a></div>
+      </article>
+      <article class="pcard rise d2">
+        <div class="pcard-top"><span>12</span><span>Machine learning</span></div>
+        <h4>ML algorithms from scratch in NumPy</h4>
+        <p>Trees, ensembles, SVM, MLP, LSTM and PCA by hand. Logistic regression, linear SVM and a decision tree match scikit-learn's test accuracy to four decimals; the random forest does not (0.937 against 0.958), and the README says so.</p>
+        <div class="tech">Python · NumPy · SciPy</div>
+        <div class="acts"><a class="repo" href="https://github.com/6ixE11even/ml-algorithms-from-scratch">code ↗</a></div>
+      </article>
+    </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="journey">
   <div class="wrap">
-    <div class="sec-head rise"><div class="label">Experience</div><h2>Where the habits came from</h2></div>
+    <div class="sec-head rise"><div class="label">Journey</div><h2>Where the habits came from</h2></div>
+    <div class="gantt-wrap rise"><div class="gantt" id="gantt" role="img" aria-label="Timeline of education and work from 2016 to 2027"></div></div>
     <div>
       <div class="tl-item rise">
         <div class="tl-when">05/26 — 08/26</div>
         <div class="tl-what">
-          <h3>Quantitative Researcher — QWIM Industry Capstone</h3>
-          <div class="tl-org">NYU Tandon · industry-hosted, Bank of America</div>
+          <h3>Quantitative Research — QWIM Industry Capstone</h3>
+          <div class="tl-org">NYU Tandon · industry-hosted by Bank of America · five-person team</div>
           <ul>
-            <li>Sole owner of one of five model tracks: a regime-conditioned risk-budgeting framework over equities, bonds, gold and commodities across a 27-year daily backtest.</li>
-            <li>Equal Risk Contribution by cyclical coordinate descent alongside hierarchical risk budgeting on Conditional Drawdown-at-Risk, evaluated through a four-layer ablation so every component's contribution is measured rather than asserted.</li>
-            <li>Sharpe improved monotonically layer by layer to 0.55 against 0.37 for 60/40, with maximum drawdown cut from −37% to −22% at roughly half the volatility.</li>
-            <li>Strictly point-in-time pipelines from first-release data vintages, with causality proven by automated look-ahead recomputation tests agreeing to 1e-16.</li>
+            <li>Regime-conditioned risk budgeting across SPX, investment-grade bonds, high yield, emerging markets and gold, 1999–2025: equal risk contribution and hierarchical ERC on Conditional Drawdown-at-Risk, evaluated as a four-level ablation so each layer's contribution is measured rather than asserted.</li>
+            <li>My workstream's result: the best variant lifts Sharpe to 0.55 against 0.37 for 60/40 and cuts maximum drawdown from −37% to −24% at about half the volatility. Absolute return is lower, 5.4% against 5.7% — the win is risk, not return.</li>
+            <li>Built the regime risk-budgeting tab in the team's Shiny dashboard and a Typst client-report exporter with 12 unit tests.</li>
+            <li>Found the test suite was running zero tests on macOS while reporting success; fixed 13 plugin and dependency faults to get 10,423 passing, with 22 pre-existing failures documented.</li>
           </ul>
         </div>
       </div>
@@ -410,9 +663,10 @@ footer{padding:56px 0 70px}
           <h3>Senior Risk Analyst — Market Risk Infrastructure</h3>
           <div class="tl-org">Nomura</div>
           <ul>
+            <li>Built Python and SQL pipelines reconciling daily P&amp;L, positions and market data feeding VaR and sensitivity dashboards, removing 50+ hours a month of manual processing.</li>
             <li>Owned the production lifecycle of VaR and sensitivity models across equities, rates, FX and commodities — daily backtesting and P&amp;L attribution.</li>
             <li>Built Python anomaly-flagging that attributed each exception to its cause — upstream data, a stale mark, a booking error — rather than merely raising it, cutting investigation time roughly 40%.</li>
-            <li>Quarterly Basel 2.5 / FRTB stress testing and capital submissions, with rules-based validation reconciling to 100% against front-office pricing systems.</li>
+            <li>Quarterly Basel 2.5 / FRTB stress testing and capital submissions, with rules-based validation reconciling to 100% against front-office systems.</li>
             <li>Led a three-person workstream that cut overnight batch runtime 35% and built the VaR and exception dashboard used by senior stakeholders.</li>
           </ul>
         </div>
@@ -423,8 +677,8 @@ footer{padding:56px 0 70px}
           <h3>Graduate Teaching Assistant</h3>
           <div class="tl-org">NYU Tandon · Finance and Risk Engineering</div>
           <ul>
-            <li>C++ fundamentals, memory management and software design for Financial Software Laboratory.</li>
-            <li>Micro-, macro- and financial-economics instruction for Financial Economics.</li>
+            <li>FRE-GY 6811 Financial Software Laboratory: C++ and financial-software concepts in labs and office hours.</li>
+            <li>FRE-GY 6023 Financial Economics: micro-, macro- and financial-economics instruction and grading.</li>
           </ul>
         </div>
       </div>
@@ -437,7 +691,7 @@ footer{padding:56px 0 70px}
     <div class="sec-head rise"><div class="label">Background</div><h2>Education &amp; tools</h2></div>
     <div class="cols">
       <div class="card rise"><h3>Education</h3><div class="kv">
-        <span><b>MS Financial Engineering</b><br>NYU Tandon · expected 05/27 · 3.8/4.0</span>
+        <span><b>MS Financial Engineering</b><br>NYU Tandon · expected 05/27 · 3.84/4.0</span>
         <span><b>MBA, Finance</b><br>NMIMS Mumbai · 2022 · 3.3/4.0</span>
         <span><b>BTech Mechanical Engineering</b><br>VIT · 2020 · 8.9/10.0</span></div></div>
       <div class="card rise d1"><h3>Languages &amp; libraries</h3><div class="kv">
@@ -445,7 +699,7 @@ footer{padding:56px 0 70px}
         <span><b>C++20</b> — STL, Boost, CMake, CTest</span>
         <span><b>SQL</b> · MOSEK · Linux · Git · pytest</span></div></div>
       <div class="card rise d2"><h3>Domains</h3><div class="kv">
-        <span>Market risk · VaR &amp; sensitivities · FRTB</span>
+        <span>Market risk · VaR &amp; sensitivities · FRTB · CVA</span>
         <span>Portfolio construction · risk budgeting · convex optimisation</span>
         <span>Derivatives pricing · volatility calibration</span>
         <span>Market microstructure · execution</span></div></div>
@@ -462,16 +716,30 @@ footer{padding:56px 0 70px}
     <div class="sec-head rise" style="margin-bottom:24px">
       <div class="label">Contact</div>
       <h2>Twelve repositories, each with its tests and its limitations</h2>
-      <p>The five above are the ones worth reading first. The rest — SABR calibration, statistical-arbitrage pairs, LOB manipulation detection, commodity term structure, ML from first principles, prediction-market arbitrage — are on GitHub with the same treatment.</p>
+      <p>The six write-ups above are the ones worth reading first. Every repository ships with unit tests, CI and a README that states what it does not do.</p>
     </div>
-    <div class="foot rise">
-      <div class="links">
-        <a href="mailto:tbp8777@nyu.edu">tbp8777@nyu.edu</a>
-        <a href="https://github.com/6ixE11even">GitHub</a>
-        <a href="https://linkedin.com/in/tejaspandya9598">LinkedIn</a>
+    <div class="contact rise">
+      <ul class="clist">
+        <li><span class="k">Email</span><span><a href="mailto:tbp8777@nyu.edu" id="email">tbp8777@nyu.edu</a><button class="copy" type="button" data-copy="tbp8777@nyu.edu">copy</button></span></li>
+        <li><span class="k">Phone</span><a href="tel:+15513769633">(551) 376-9633</a></li>
+        <li><span class="k">LinkedIn</span><a href="https://linkedin.com/in/tejaspandya9598">linkedin.com/in/tejaspandya9598</a></li>
+        <li><span class="k">GitHub</span><a href="https://github.com/6ixE11even">github.com/6ixE11even</a></li>
+        <li><span class="k">Based in</span><span>New York, NY</span></li>
+      </ul>
+      <div class="c-side">
+        <div class="status" style="margin-top:0"><i></i>Open to full-time roles from 2027</div>
+        <details class="rmenu up">
+          <summary>Download résumé</summary>
+          <div class="rm-list">
+            <a href="resume/tejas-pandya-quant-research.pdf" download><b>Research</b><span>quant research · signals · portfolios</span></a>
+            <a href="resume/tejas-pandya-quant-trading.pdf" download><b>Trading</b><span>execution · derivatives · market making</span></a>
+            <a href="resume/tejas-pandya-quant-development.pdf" download><b>Development</b><span>C++20 · Python · systems</span></a>
+            <a href="resume/tejas-pandya-risk.pdf" download><b>Risk</b><span>market risk · VaR · FRTB · CVA</span></a>
+          </div>
+        </details>
       </div>
-      <div class="fine">New York, NY · seeking quantitative research &amp; risk roles, 2027</div>
     </div>
+    <div class="fine foot-line">Tejas Pandya · New York · built by hand, no trackers, no external requests</div>
   </div>
 </footer>
 
@@ -483,19 +751,21 @@ const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const ease = t => t<0 ? 0 : t>1 ? 1 : 1-Math.pow(1-t,3);
 
 /* ── measured data ───────────────────────────────────────────────────── */
-const FRONTIER=[[1.0e-8,110475,233068,0.25],[1.47e-8,96255,267166,0.29],[2.15e-8,83732,303294,0.34],
-[3.16e-8,72779,341555,0.40],[4.64e-8,63248,382091,0.46],[6.81e-8,54989,425068,0.54],
-[1.0e-7,47862,470637,0.63],[1.47e-7,41746,518849,0.73],[2.15e-7,36557,569484,0.86],
-[3.16e-7,32239,621857,1.00],[4.64e-7,28750,674712,1.16],[6.81e-7,26041,726333,1.36],
-[1.0e-6,24033,774868,1.58],[1.47e-6,22615,818735,1.84],[2.15e-6,21660,856914,2.15],
-[3.16e-6,21043,889030,2.51],[4.64e-6,20660,915272,2.92],[6.81e-6,20430,936205,3.41],
-[1.0e-5,20294,952583,3.98],[1.47e-5,20216,965206,4.64],[2.15e-5,20172,974822,5.41],
-[3.16e-5,20147,982081,6.31],[4.64e-5,20134,987525,7.35],[6.81e-5,20126,991586,8.58],
-[1.0e-4,20122,994605,10.0]];
+// optimal-execution reports/frontier.csv @ 249e2c1: [lambda, E[cost] $, stdev $, half-life d]
+const FRONTIER=[[9.78e-7,110475,233068,0.25],[7.12e-7,96255,267166,0.29],[5.2e-7,83732,303294,0.34],
+[3.8e-7,72779,341555,0.40],[2.78e-7,63248,382091,0.46],[2.04e-7,54989,425068,0.54],
+[1.5e-7,47862,470637,0.63],[1.1e-7,41746,518849,0.73],[8.07e-8,36557,569484,0.85],
+[5.93e-8,32239,621857,1.00],[4.36e-8,28750,674712,1.16],[3.2e-8,26041,726333,1.36],
+[2.35e-8,24033,774868,1.58],[1.73e-8,22615,818735,1.84],[1.27e-8,21660,856914,2.15],
+[9.35e-9,21043,889030,2.51],[6.88e-9,20660,915272,2.92],[5.06e-9,20430,936205,3.41],
+[3.72e-9,20294,952583,3.98],[2.73e-9,20216,965206,4.64],[2.01e-9,20172,974822,5.41],
+[1.48e-9,20147,982081,6.31],[1.09e-9,20134,987525,7.35],[7.99e-10,20126,991586,8.58],
+[5.88e-10,20122,994605,10.0]];
 const TWAP={cost:20117,risk:1003140};
 const SWEEP={bps:[0,10,15,25,50,100],fr:[.359,.230,.165,.036,-.281,-.857],
   ca:[.382,.498,.487,.507,.394,.282],mp:[.676,.644,.630,.583,.527,.508]};
-const ATTR=[["Carry",-1310],["Roll-down",11083],["Level",-89818],["Slope",-94549],["Curvature",23015],["Residual",-20262]];
+// sofr-swap-pnl-attribution README @ a733a7a: 31 Aug -> 1 Sep 2026 on FRED Treasury CMT
+const ATTR=[["Carry",-353],["Roll-down",12336],["Level",-179601],["Slope",-62753],["Curvature",-4558],["Residual",-2176]];
 const fmt=n=>Math.abs(n)>=1e6?(n/1e6).toFixed(2)+"M":Math.abs(n)>=1e3?Math.round(n/1e3)+"k":String(Math.round(n));
 
 /* ── canvas sizing (data-h is authoritative; cv.height writes the attr) ── */
@@ -518,7 +788,7 @@ function monoFont(px,wt){return (wt||500)+" "+px+"px "+CSSV("--mono").split(",")
 
 /* ── Fig 1 · frontier ────────────────────────────────────────────────── */
 const cvF=document.getElementById("frontier");
-let sel=12, animF=0;
+let sel=9, animF=0;
 function drawFrontier(){
   const {c,w,h}=fit(cvF), P={l:56,r:18,t:16,b:36};
   const x1=Math.max(...FRONTIER.map(d=>d[2]),TWAP.risk)*1.06;
@@ -686,7 +956,7 @@ function drawAttr(){
 const grain=document.getElementById("grain");
 function drawGrain(){
   const host=grain.parentElement.getBoundingClientRect();
-  const d=1,w=Math.max(1,Math.round(host.width)),h=Math.max(1,Math.round(host.height));
+  const w=Math.max(1,Math.round(host.width)),h=Math.max(1,Math.round(host.height));
   grain.width=w;grain.height=h;
   const c=grain.getContext("2d");
   const img=c.createImageData(w,h),px=img.data;
@@ -698,6 +968,138 @@ function drawGrain(){
   }
   c.putImageData(img,0,0);
 }
+
+/* ── portrait · Monte Carlo ──────────────────────────────────────────────
+   Thousands of Brownian paths cross the frame left to right. Each segment is
+   inked in proportion to the photo's tone where it passes, so the face
+   emerges as paths accumulate. Tone map: R = darkness, G = person mask.     */
+const cvP=document.getElementById("portrait");
+const PW=320,PH=400;
+let MW=0,MH=0,DK=null,MK=null,pRaf=0,pMouse={on:false,x:0,y:0};
+const isDark=()=>CSSV("--ground").toLowerCase()==="#0e1219";
+function tone(x,y,dark){
+  const fx=x/PW*MW-.5,fy=y/PH*MH-.5,i=Math.floor(fx),j=Math.floor(fy);
+  if(i<0||j<0||i>=MW-1||j>=MH-1)return 0;
+  const tx=fx-i,ty=fy-j;
+  // on a dark ground ink is light, so it follows the photo's light tones; the floor keeps the suit's outline
+  const at=k=>dark?MK[k]*(.16+.84*Math.max(0,1-DK[k]/Math.max(MK[k],1e-3))):DK[k];
+  const k=j*MW+i;
+  return (at(k)*(1-tx)+at(k+1)*tx)*(1-ty)+(at(k+MW)*(1-tx)+at(k+MW+1)*tx)*ty;
+}
+function gauss(){let u=0;while(!u)u=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*Math.random());}
+function portraitStart(){
+  if(!DK)return;
+  cancelAnimationFrame(pRaf);
+  const d=Math.min(devicePixelRatio||1,2),w=cvP.getBoundingClientRect().width||PW,s=w/PW;
+  cvP.width=Math.round(w*d);cvP.height=Math.round(w*1.25*d);
+  const g=cvP.getContext("2d");g.setTransform(d*s,0,0,d*s,0,0);
+  const dark=isDark(),ink=CSSV("--ink"),acc=CSSV("--accent");
+  g.fillStyle=CSSV("--panel");g.fillRect(0,0,PW,PH);g.lineWidth=.6;
+  const TOTAL=3200,PER=REDUCE?TOTAL:36,B=10,label=document.getElementById("p-count");
+  let done=0;
+  const walk=(y0,col,boost)=>{
+    const segs=Array.from({length:B},()=>[]);
+    let x=0,y=y0;
+    while(x<PW){
+      const nx=x+2,ny=y+gauss()*2.1+(y0-y)*.015;
+      const a=Math.pow(tone(x,y,dark),2.6),b=Math.min(B-1,Math.floor(a*B));
+      segs[b].push(x,y,nx,ny);x=nx;y=ny;
+    }
+    for(let b=0;b<B;b++){
+      const q=segs[b];if(!q.length)continue;
+      g.globalAlpha=(.02+b/B*.5)*boost;g.strokeStyle=col;g.beginPath();
+      for(let k=0;k<q.length;k+=4){g.moveTo(q[k],q[k+1]);g.lineTo(q[k+2],q[k+3]);}
+      g.stroke();
+    }
+    g.globalAlpha=1;
+  };
+  const step=()=>{
+    for(let k=0;k<PER&&done<TOTAL;k++,done++)walk(Math.random()*PH,ink,1);
+    if(pMouse.on)for(let k=0;k<3;k++)walk(pMouse.y+gauss()*10,acc,1.6);
+    label.textContent="paths "+done.toLocaleString("en-US")+" / "+TOTAL.toLocaleString("en-US");
+    if(done<TOTAL||pMouse.on)pRaf=requestAnimationFrame(step);
+  };
+  cvP.onpointerenter=()=>{pMouse.on=true;if(done>=TOTAL)pRaf=requestAnimationFrame(step);};
+  step();
+}
+cvP.addEventListener("pointermove",e=>{const r=cvP.getBoundingClientRect();
+  pMouse.x=(e.clientX-r.left)/r.width*PW;pMouse.y=(e.clientY-r.top)/r.height*PH;});
+cvP.addEventListener("pointerleave",()=>{pMouse.on=false;});
+(function(){
+  const img=new Image();
+  img.onload=()=>{
+    const cv=document.createElement("canvas");MW=cv.width=img.width;MH=cv.height=img.height;
+    const x=cv.getContext("2d");x.drawImage(img,0,0);
+    const px=x.getImageData(0,0,MW,MH).data;DK=new Float32Array(MW*MH);MK=new Float32Array(MW*MH);
+    for(let i=0;i<DK.length;i++){DK[i]=px[i*4]/255;MK[i]=px[i*4+1]/255;}
+    portraitStart();
+  };
+  img.src="data:image/png;base64,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";
+})();
+
+/* ── journey · two lanes on a year scale ─────────────────────────────── */
+const JOURNEY={from:2016,to:2027.6,lanes:[
+  ["Education",[
+    [[2016.5,2020.45,"BTech Mechanical Eng.","VIT · 8.9/10"]],
+    [[2020.5,2022.3,"MBA Finance","NMIMS Mumbai"],[2025.6,2027.37,"MS Financial Engineering","NYU Tandon · 3.84"]]]],
+  ["Work",[
+    [[2022.58,2025.55,"Senior Risk Analyst","Nomura · market risk infrastructure"]],
+    [[2025.67,2026.25,"Graduate TA","NYU · C++, econ"]],
+    [[2026.33,2026.67,"QWIM capstone","regime risk budgeting"]]]]]};
+function drawJourney(){
+  const host=document.getElementById("gantt");if(!host)return;
+  const span=JOURNEY.to-JOURNEY.from,pct=v=>((v-JOURNEY.from)/span*100);
+  const trackPx=Math.max(1,host.clientWidth-140);   // .gantt padding: 118 left + 22 right
+  let html="";
+  JOURNEY.lanes.forEach(([name,rows])=>{
+    html+='<div class="g-lane"><span class="label">'+name+'</span>';
+    rows.forEach(row=>{
+      html+='<div class="g-row">';
+      row.forEach(([a,b,t,sub])=>{
+        const L=pct(a),W=pct(b)-pct(a),cls="g-bar"+(name==="Work"?" work":""),txt="<b>"+t+"</b><span>"+sub+"</span>";
+        const needPx=Math.max(t.length*7.2,sub.length*6.1)+20;   // mono advance at 11.5px / 10px
+        if(W/100*trackPx>=needPx){html+='<div class="'+cls+'" style="left:'+L+'%;width:'+W+'%">'+txt+'</div>';return;}
+        // too narrow to hold its label: draw the bar alone and set the label beside it,
+        // on the left when the bar sits near the right edge of the axis
+        html+='<div class="'+cls+'" style="left:'+L+'%;width:'+W+'%"></div>';
+        html+=L+W>78
+          ?'<div class="g-lbl flip" style="right:calc('+(100-L)+'% + 8px)">'+txt+'</div>'
+          :'<div class="g-lbl" style="left:calc('+(L+W)+'% + 8px)">'+txt+'</div>';
+      });
+      html+='</div>';
+    });
+    html+='</div>';
+  });
+  html+='<div class="g-axis">';
+  for(let y=JOURNEY.from;y<=2027;y++)html+='<span style="left:'+pct(y)+'%">'+y+'</span>';
+  html+='</div>';
+  const now=new Date(),yr=now.getUTCFullYear()+(now.getUTCMonth()+now.getUTCDate()/31)/12;
+  if(yr>JOURNEY.from&&yr<JOURNEY.to)html+='<div class="g-now" style="left:calc(118px + (100% - 140px) * '+(pct(yr)/100)+')"></div>';
+  host.innerHTML=html;
+}
+drawJourney();
+// on narrow screens the chart scrolls sideways; open it on the recent years, not on 2016
+(function(){const gw=document.querySelector(".gantt-wrap");if(gw&&gw.scrollWidth>gw.clientWidth)gw.scrollLeft=gw.scrollWidth;})();
+
+/* ── now building · recording window ─────────────────────────────────── */
+(function(){
+  const t0=Date.UTC(2026,8,28,21,42,41),t1=Date.UTC(2026,9,5,21,42,41),now=Date.now();
+  const p=Math.max(0,Math.min(1,(now-t0)/(t1-t0)));
+  document.getElementById("rec-fill").style.width=(p*100).toFixed(1)+"%";
+  const lab=document.getElementById("rec-label"),txt=document.getElementById("rec-text");
+  if(now<t0){lab.textContent="7-day recording · starts soon";}
+  else if(now<t1){lab.textContent="7-day recording · day "+((now-t0)/864e5).toFixed(1)+" of 7";}
+  else{lab.textContent="7-day recording window closed";}
+})();
+
+/* ── résumé menus and copy ───────────────────────────────────────────── */
+const menus=[...document.querySelectorAll(".rmenu")];
+document.addEventListener("click",e=>menus.forEach(m=>{if(m.open&&!m.contains(e.target))m.open=false;}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")menus.forEach(m=>m.open=false);});
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{
+  const done=()=>{b.textContent="copied";setTimeout(()=>b.textContent="copy",1600);};
+  if(navigator.clipboard)navigator.clipboard.writeText(b.dataset.copy).then(done,()=>{});
+}));
 
 /* ── animate on enter ────────────────────────────────────────────────── */
 function animate(setter,dur,after){
@@ -728,12 +1130,13 @@ document.querySelectorAll(".rise").forEach(el=>io.observe(el));
 });
 
 /* ── redraw plumbing ─────────────────────────────────────────────────── */
-function redraw(){drawFrontier();drawSweep();drawAttr();drawGrain();}
-let raf=0;
-const ro=new ResizeObserver(()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(redraw);});
+function redraw(){drawFrontier();drawSweep();drawAttr();drawGrain();drawJourney();}
+let raf=0,pW=0;
+const ro=new ResizeObserver(()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{
+  redraw();const w=Math.round(cvP.getBoundingClientRect().width);if(w&&w!==pW){pW=w;portraitStart();}});});
 [cvF,cvS,cvA].forEach(el=>ro.observe(el.parentElement));
-ro.observe(grain.parentElement);
-matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>setTimeout(redraw,50));
+ro.observe(grain.parentElement);ro.observe(cvP);
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>setTimeout(()=>{redraw();portraitStart();},50));
 
 const bar=document.getElementById("progress");
 addEventListener("scroll",()=>{
