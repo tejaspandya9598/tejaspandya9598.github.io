@@ -454,7 +454,7 @@ footer{padding:64px 0 60px}
       <div class="rise">
         <div class="label">Tejas Pandya · Quantitative finance</div>
         <h1>Nothing is free. The work is <em>pricing the trade-off</em>.</h1>
-        <p class="lede">I build quantitative models end to end, then try to break them. My work spans the full stack of a quant team: a C++20 matching engine that clears ~21M messages a second, an execution model tested against a reinforcement-learning agent on 207,361 real bars, a portfolio optimizer that prices its own trading costs, and the VaR and FRTB numbers a regulator signs off on. Three years running market-risk infrastructure at Nomura taught me what production demands. The MS in Financial Engineering at NYU Tandon (3.84 GPA) gave me the theory to go further. I lag every input to the date it was published, ship tests with every model, and report what failed alongside what worked.</p>
+        <p class="lede">Every model is a bet on what you can safely ignore. I spent three years at Nomura watching those bets meet production, and I'm finishing an MS in Financial Engineering at NYU Tandon to make better ones. I lag every input to the date it was published, test before I trust, and publish what didn't work.</p>
         <div class="status"><i></i>Open to full-time quant roles from 2027: research, trading, development, risk · New York</div>
         <div class="hero-meta">
           <span class="chip">MS Financial Engineering · NYU Tandon '27</span>
@@ -482,31 +482,31 @@ footer{padding:64px 0 60px}
     <div class="sec-head rise">
       <div class="label">What I bring</div>
       <h2>Four quant tracks, each backed by shipped work</h2>
-      <p>I am not narrowing myself to one seat. Research, trading, development and risk draw on the same habits: careful data, honest statistics and code that is tested before it is trusted. Here is the evidence for each, with the résumé written for it.</p>
+      <p>One profile, four seats. Research, trading, development and risk draw on the same habits: careful data, honest statistics and code that is tested before it is trusted. Here is the evidence for each, with the résumé written for it.</p>
     </div>
     <div class="grid tracks">
       <article class="pcard rise">
         <div class="pcard-top"><span>Research</span><span>signals · inference · ML</span></div>
         <h4>Claims I can defend under scrutiny</h4>
-        <p>I have tested cross-sectional alpha on 495 names with Newey–West inference and false-discovery control, trained purged walk-forward learners, and found a look-ahead in my own published regime backtest, then measured what it had been worth. I treat every <em>t</em>-statistic as a claim that has to survive its own robustness check.</p>
+        <p>Cross-sectional alpha on 495 names, scored with Newey–West inference and false-discovery control. Purged walk-forward learning. A look-ahead found in a published regime backtest, then measured. Every <em>t</em>-statistic here is a claim that had to survive its own robustness check.</p>
         <div class="acts"><a class="repo" href="#w1">01</a><a class="repo" href="#w3">03</a><a class="repo" href="#w12">12</a><a class="repo" href="resume/tejas-pandya-quant-research.pdf" download>résumé ↓</a></div>
       </article>
       <article class="pcard rise d1">
         <div class="pcard-top"><span>Trading</span><span>execution · options · market making</span></div>
         <h4>Models that meet a real order book</h4>
-        <p>I calibrated Almgren–Chriss to a live Deribit book and stress-tested it against a policy-gradient agent, fitted SABR to the BTC volatility smile, and am now building a Deribit options market maker with latency-aware fills, delta hedging and P&amp;L after fees.</p>
+        <p>Almgren–Chriss calibrated to a live Deribit book and stress-tested against a learning agent. SABR fitted to the BTC volatility smile. A Deribit options market maker in progress, with latency-aware fills, delta hedging and P&amp;L after fees.</p>
         <div class="acts"><a class="repo" href="#w2">02</a><a class="repo" href="#w7">07</a><a class="repo" href="#now">now</a><a class="repo" href="resume/tejas-pandya-quant-trading.pdf" download>résumé ↓</a></div>
       </article>
       <article class="pcard rise d2">
         <div class="pcard-top"><span>Development</span><span>C++20 · Python · data</span></div>
         <h4>Systems built for the hot path</h4>
-        <p>I wrote a zero-allocation C++20 matching engine that clears ~21M messages a second and an options library that prices three independent ways and agrees to within 0.6%. At Nomura I built Python and SQL pipelines that removed 50+ hours of manual work a month.</p>
+        <p>A zero-allocation C++20 matching engine clearing ~21M messages a second. An options library that prices three independent ways and agrees to within 0.6%. Python and SQL pipelines at Nomura that removed 50+ hours of manual work a month.</p>
         <div class="acts"><a class="repo" href="#w6">06</a><a class="repo" href="#w5">05</a><a class="repo" href="#journey">Nomura</a><a class="repo" href="resume/tejas-pandya-quant-development.pdf" download>résumé ↓</a></div>
       </article>
       <article class="pcard rise d3">
         <div class="pcard-top"><span>Risk</span><span>market · regulatory · counterparty</span></div>
         <h4>Three years of numbers that had to reconcile</h4>
-        <p>At Nomura I owned VaR and sensitivity models across equities, rates, FX and commodities, and Basel 2.5 and FRTB submissions reconciled 100% to front-office systems. I have since built a historical CVA that measures wrong-way risk by experiment rather than assuming it.</p>
+        <p>Three years owning VaR and sensitivity models across equities, rates, FX and commodities at Nomura, with Basel 2.5 and FRTB submissions reconciled 100% to front-office systems. Since then, a historical CVA that measures wrong-way risk by experiment rather than assuming it.</p>
         <div class="acts"><a class="repo" href="#w4">04</a><a class="repo" href="#journey">Nomura</a><a class="repo" href="resume/tejas-pandya-risk.pdf" download>résumé ↓</a></div>
       </article>
     </div>
@@ -517,7 +517,7 @@ footer{padding:64px 0 60px}
   <div class="wrap">
     <div class="sec-head rise">
       <div class="label">Now building</div>
-      <h2>What I am building right now</h2>
+      <h2>Work in progress, reported as it goes</h2>
     </div>
     <div class="now rise">
       <div class="now-top">
@@ -554,14 +554,14 @@ footer{padding:64px 0 60px}
     <div class="sec-head rise">
       <div class="label">Selected work</div>
       <h2>Six studies, each with its limitation stated</h2>
-      <p>Every figure below is reproducible from its repository, covered by tests in CI, and reported with the assumption that could break it. Where a published effect failed to replicate, I say so. That is the standard I would bring to any desk: a number you can defend in front of a risk committee, not one that only survives a slide.</p>
+      <p>Every figure below is reproducible from its repository, covered by tests in CI, and reported with the assumption that could break it. Where a published effect failed to replicate, I say so. That is the standard a desk should expect: a number that can be defended in front of a risk committee, not one that only survives a slide.</p>
     </div>
 
     <article class="finding" id="w1">
       <div class="stack rise">
         <div class="label">01 — Signal research</div>
         <h3>Averaging your alpha signals loses money</h3>
-        <p>I tested eight cross-sectional signals on 495 S&amp;P 500 names over 2010–2026: six built from prices and two from the tone of 15,575 SEC filings. Each is scored by Spearman rank information coefficient with Newey–West <em>t</em>-statistics, then Benjamini–Hochberg across all eight tests. Only Amihud illiquidity survives. Low volatility and the lottery signals come out with the <em>wrong sign</em>.</p>
+        <p>Eight cross-sectional signals on 495 S&amp;P 500 names, 2010–2026, six built from prices and two from the tone of 15,575 SEC filings, are scored by Spearman rank information coefficient with Newey–West <em>t</em>-statistics, then Benjamini–Hochberg across all eight tests. One survives: Amihud illiquidity. Low volatility and the lottery signals come out with the <em>wrong sign</em>.</p>
         <p>So the obvious move, z-score everything and average, loses 7.8% a year at a Sharpe of −0.57. Learning the combination with LightGBM under purged walk-forward CV with a one-month embargo, charging 10&nbsp;bps a side, reaches 0.79 out of sample: within a quarter-point of the best single signal at two-thirds of its drawdown.</p>
         <div class="caveat"><b>The text factor was the filing calendar.</b> A 10-K reads more negative than a 10-Q (median net tone −0.0164 against −0.0097), so differencing tone across form types hands every 10-Q→10-K transition a −0.0081 "signal". Differencing within form takes its <em>t</em>-statistic from 1.37 to 0.46 and its standalone Sharpe from +0.35 to −0.14. Both versions stay in the repo.</div>
         <div class="caveat"><b>Limitation:</b> the universe is current index members extended backward, so it is survivor-only. I would want point-in-time constituents before defending any single <em>t</em>-statistic.</div>
@@ -596,8 +596,8 @@ footer{padding:64px 0 60px}
       <div class="stack rise">
         <div class="label">02 — Execution</div>
         <h3>The optimal schedule, and the agent that rediscovered it</h3>
-        <p>I calibrated Almgren–Chriss liquidation to a live Deribit BTC-PERPETUAL book, taking volatility, volume and the touch spread from the feed and scaling impact as 1/ADV. On a 10%-of-ADV order, $49.0M over five days on the October 2, 2026 book, it takes 38% off TWAP's cost risk and pays for it: 7.5&nbsp;bps of expected impact against 4.7.</p>
-        <p>I then trained a policy-gradient agent on 207,361 real five-minute bars, cut into 5,752 three-hour episodes and split chronologically, with every input estimated only from bars that closed before the episode opened. It was never shown the closed form and converged to it anyway: 0.060&nbsp;bps apart out of sample, paired <em>t</em> = 0.10.</p>
+        <p>Calibrated to a live Deribit BTC-PERPETUAL book, with volatility, volume and the touch spread taken from the feed and impact scaled as 1/ADV, Almgren–Chriss takes 38% off TWAP's cost risk and pays for it. On a 10%-of-ADV order, $49.0M over five days on the October 2, 2026 book, that is 7.5&nbsp;bps of expected impact against 4.7.</p>
+        <p>A policy-gradient agent trained on 207,361 real five-minute bars, cut into 5,752 three-hour episodes and split chronologically, sees only inputs estimated from bars that closed before each episode opened. It was never shown the closed form and converged to it anyway: 0.060&nbsp;bps apart out of sample, paired <em>t</em> = 0.10.</p>
         <div class="caveat"><b>Nothing beat TWAP, the closed form included.</b> Almgren–Chriss costs 0.107&nbsp;bps more (<em>t</em> = 0.38), because its theoretical edge is 0.6% of cost against a 49&nbsp;bps per-episode standard deviation. What the agent did win was dispersion: 33.8&nbsp;bps against TWAP's 49.2.</div>
         <a class="repo" href="https://github.com/tejaspandya9598/optimal-execution">github.com/tejaspandya9598/optimal-execution ↗</a>
       </div>
@@ -631,7 +631,7 @@ footer{padding:64px 0 60px}
       <div class="stack rise">
         <div class="label">03 — Portfolio construction</div>
         <h3>A look-ahead in my own published backtest, found and measured</h3>
-        <p>Macro regimes from 120+ FRED-MD indicators, reduced by PCA and clustered by two-step K-Means, drive an MSCI sector allocation with every macro input lagged by its publication delay. The published backtest fitted the regime detector once on 1959–2023 data, so every month it traded before 2024 carried a label fitted with hindsight. I refitted the detector every January on data available at the time. The headline Ridge book fell from a Sharpe of 0.65 to 0.35, below equal weight, while the simpler regime-mean forecaster held up as the best long-short book in both universes: 0.77 in developed markets and 0.73 in emerging.</p>
+        <p>Macro regimes from 120+ FRED-MD indicators, reduced by PCA and clustered by two-step K-Means, drive an MSCI sector allocation with every macro input lagged by its publication delay. The published backtest fitted the regime detector once on 1959–2023 data, so every month it traded before 2024 carried a label fitted with hindsight. Refitting the detector every January, on only the data available then, takes the headline Ridge book from a Sharpe of 0.65 to 0.35, below equal weight, while the simpler regime-mean forecaster holds up as the best long-short book in both universes: 0.77 in developed markets and 0.73 in emerging.</p>
         <p>Position sizing is a convex program with trading costs <em>inside</em> the objective: an L1 turnover penalty, a Cholesky second-order-cone risk term and a quadratic impact term, re-solved monthly over a receding horizon. The impact coefficient is <em>assumed</em>, not fitted, so the useful test is sweeping it. Under walk-forward regimes the multi-period book holds a net Sharpe between 0.50 and 0.70 from 0 to 100&nbsp;bps of linear cost, while the frictionless book falls to −0.28.</p>
         <div class="caveat"><b>Where it does not hold:</b> in emerging markets the frictionless book still leads at 10&nbsp;bps, and the cost-aware book wins there only at high cost.</div>
         <div class="caveat"><b>Audit of my own detector:</b> against NBER dating and two alternatives on the same 798-month panel, the K-Means regime model calls a new regime every 3.8 months where NBER changes its mind every 44.7. It wins the cluster-quality scores only because they measure the Euclidean separation it optimizes. It is too jumpy, and that is the next thing to fix.</div>
@@ -653,8 +653,8 @@ footer{padding:64px 0 60px}
       <div class="stack rise">
         <div class="label">04 — Rates &amp; counterparty risk</div>
         <h3>P&amp;L attribution that has to add up, and a CVA that tests its own assumption</h3>
-        <p>I bootstrap a discount curve from FRED Treasury constant-maturity par yields and mark a ten-swap, $255M book from 2 to 30 years. Every par instrument reprices to under 1e-9. Daily P&amp;L splits into carry, roll-down and level, slope and curvature moves through key-rate durations, with convexity booked as an <em>explicit residual</em> so the parts reconcile to a full revaluation.</p>
-        <p>I then extended it to counterparty exposure, block-bootstrapping 8,478 joint daily observations of the curve and Moody's credit spreads (1986–2026) into 20,000 thirty-year paths. Peak EPE $2.35M, peak PFE $13.5M. Wrong-way risk was priced by experiment: resampling rates and credit from the same days keeps their −0.38 correlation, resampling them from different days destroys it. The coupling is worth $89,553, 16.9% of CVA, and both runs share their curve paths bit-for-bit, so the difference cannot be Monte Carlo noise.</p>
+        <p>A discount curve bootstrapped from FRED Treasury constant-maturity par yields marks a ten-swap, $255M book from 2 to 30 years. Every par instrument reprices to under 1e-9. Daily P&amp;L splits into carry, roll-down and level, slope and curvature moves through key-rate durations, with convexity booked as an <em>explicit residual</em> so the parts reconcile to a full revaluation.</p>
+        <p>The same curves then drive counterparty exposure: 8,478 joint daily observations of the curve and Moody's credit spreads (1986–2026), block-bootstrapped into 20,000 thirty-year paths. Peak EPE $2.35M, peak PFE $13.5M. Wrong-way risk was priced by experiment: resampling rates and credit from the same days keeps their −0.38 correlation, resampling them from different days destroys it. The coupling is worth $89,553, 16.9% of CVA, and both runs share their curve paths bit-for-bit, so the difference cannot be Monte Carlo noise.</p>
         <div class="caveat"><b>Scope:</b> a Treasury curve, not SOFR fixings (ICE swap rates are licensed); one curve; a historical CVA rather than a risk-neutral desk reserve; no CSA. On a quiet day the residual is 0.9% of P&amp;L. On April 16, 1980, when the curve fell 51–76bp, it is 9% — the honest limit of a first-order attribution.</div>
         <a class="repo" href="https://github.com/tejaspandya9598/sofr-swap-pnl-attribution">github.com/tejaspandya9598/sofr-swap-pnl-attribution ↗</a>
       </div>
@@ -699,7 +699,7 @@ footer{padding:64px 0 60px}
       <div class="stack rise">
         <div class="label">06 — Market microstructure</div>
         <h3>The O(1) claim, with its fine print</h3>
-        <p>I built a deterministic limit order book and matching engine in C++20 that enforces strict price–time priority. Resting orders sit in intrusive doubly-linked lists per price level, so cancelling is a pointer splice rather than a search. A pre-warmed memory pool means the matching loop never allocates — which is what keeps the <em>tail</em> flat, not just the mean.</p>
+        <p>A deterministic limit order book and matching engine in C++20 enforces strict price–time priority. Resting orders sit in intrusive doubly-linked lists per price level, so cancelling is a pointer splice rather than a search. A pre-warmed memory pool means the matching loop never allocates — which is what keeps the <em>tail</em> flat, not just the mean.</p>
         <p>Prices are fixed-point unsigned integers with no floating point on the hot path, because float comparison in a price-priority book is a correctness defect rather than a slowdown.</p>
         <div class="caveat"><b>The qualifier:</b> "O(1) for everything" isn't true. Inserting at a <em>new</em> price level is O(log L) — the ordered map has to track the touch. Four of five hot-path operations are O(1); the fifth fires whenever the book opens a level it didn't have.</div>
         <a class="repo" href="https://github.com/tejaspandya9598/hft-matching-engine">github.com/tejaspandya9598/hft-matching-engine ↗</a>
@@ -764,7 +764,7 @@ footer{padding:64px 0 60px}
       <article class="pcard rise d2" id="w12">
         <div class="pcard-top"><span>12</span><span>Machine learning</span></div>
         <h4>ML algorithms from scratch in NumPy</h4>
-        <p>I implemented trees, ensembles, SVM, MLP, LSTM and PCA by hand. Logistic regression, linear SVM and a decision tree match scikit-learn's test accuracy to four decimals; the random forest does not (0.937 against 0.958), and the README says so.</p>
+        <p>Trees, ensembles, SVM, MLP, LSTM and PCA, all written by hand in NumPy. Logistic regression, linear SVM and a decision tree match scikit-learn's test accuracy to four decimals; the random forest does not (0.937 against 0.958), and the README says so.</p>
         <div class="tech">Python · NumPy · SciPy</div>
         <div class="acts"><a class="repo" href="https://github.com/tejaspandya9598/ml-algorithms-from-scratch">code ↗</a></div>
       </article>
@@ -851,7 +851,7 @@ footer{padding:64px 0 60px}
     <div class="sec-head rise" style="margin-bottom:24px">
       <div class="label">Contact</div>
       <h2>If your team prices, trades or risk-manages anything, let's talk</h2>
-      <p>I am looking for full-time roles from 2027 across quantitative research, trading, development and risk, and I am glad to talk shop before any of that. Email is fastest. Each résumé below is written for its track, and all twelve repositories are public with tests, CI and a README that says what they do not do.</p>
+      <p>Open to full-time roles from 2027 across quantitative research, trading, development and risk, and always glad to talk shop before any of that. Email is fastest. Each résumé below is written for its track, and all twelve repositories are public with tests, CI and a README that says what they do not do.</p>
     </div>
     <div class="contact rise">
       <ul class="clist">
@@ -1365,7 +1365,8 @@ if(!REDUCE&&matchMedia("(hover:hover) and (pointer:fine)").matches){
    too. Nothing opens by itself. Submissions go to Pageclip; with no key set
    the form falls back to an email.                                          */
 (function(){
-  const PAGECLIP_KEY="__PAGECLIP_KEY__",FORM="connect",K="cc-sent";
+  const PAGECLIP_KEY="fo4IeIIbarjKL1a5ivvQNrjeVnqryYnb",FORM="",   // "" = the site's default Pageclip form
+       K="cc-sent";
   const card=document.getElementById("cc"),tab=document.getElementById("cc-tab");if(!card||!tab)return;
   const form=document.getElementById("cc-form"),err=document.getElementById("cc-err"),walk=card.querySelector(".cc-walk");
   const sent=()=>{try{return !!localStorage.getItem(K);}catch(e){return false;}};
@@ -1417,7 +1418,7 @@ if(!REDUCE&&matchMedia("(hover:hover) and (pointer:fine)").matches){
         location.href="mailto:tbp8777@nyu.edu?subject="+encodeURIComponent(data.subject)+"&body="+
           encodeURIComponent("Name: "+name+"\nCompany: "+data.company+"\nLinkedIn: "+li);
       }else{
-        await fetch("https://send.pageclip.co/"+PAGECLIP_KEY+"/"+FORM,{method:"POST",mode:"no-cors",
+        await fetch("https://send.pageclip.co/"+PAGECLIP_KEY+(FORM?"/"+FORM:""),{method:"POST",mode:"no-cors",
           headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data)});
       }
       try{localStorage.setItem(K,String(Date.now()));}catch(x){}
