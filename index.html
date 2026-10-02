@@ -1370,11 +1370,14 @@ if(!REDUCE&&matchMedia("(hover:hover) and (pointer:fine)").matches){
   const card=document.getElementById("cc"),tab=document.getElementById("cc-tab");if(!card||!tab)return;
   const form=document.getElementById("cc-form"),err=document.getElementById("cc-err"),walk=card.querySelector(".cc-walk");
   const sent=()=>{try{return !!localStorage.getItem(K);}catch(e){return false;}};
-  // "jane-doe", "@jane-doe", "in/jane-doe" or any linkedin.com URL -> https://www.linkedin.com/in/jane-doe
+  // "jane-doe", "@jane-doe", "in/jane-doe" or any linkedin.com URL -> https://www.linkedin.com/in/jane-doe;
+  // lnkd.in share links pass through as they are
   function linkedinUrl(v){
     v=v.trim().replace(/^@/,"");
     const m=v.match(/^(?:https?:\/\/)?(?:[a-z]{2,3}\.)?linkedin\.com\/(in|pub|company)\/([^/?#\s]+)/i);
     if(m)return "https://www.linkedin.com/"+m[1].toLowerCase()+"/"+m[2];
+    const sh=v.match(/^(?:https?:\/\/)?lnkd\.in\/([A-Za-z0-9_-]+)/i);   // app share links
+    if(sh)return "https://lnkd.in/"+sh[1];
     const h=v.replace(/^in\//i,"").replace(/\/+$/,"");
     return /^[A-Za-z0-9][A-Za-z0-9_-]{2,99}$/.test(h)?"https://www.linkedin.com/in/"+h:"";
   }
