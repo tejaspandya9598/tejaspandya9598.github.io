@@ -27,3 +27,7 @@ data URIs, and `src/portrait-density.png` (the Monte Carlo portrait's tone map) 
 
 Font: JetBrains Mono © 2020 The JetBrains Mono Project Authors, SIL OFL 1.1.
 Subset to Latin + the symbols used here with `pyftsubset --flavor=woff2`.
+
+Icons (`favicon.ico`, `favicon-32.png`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`) are rendered
+from `src/icon/icon.template.html`: a "TP" monogram in JetBrains Mono over a seeded random walk.
+The touch icon is square because iOS rounds the corners itself.
