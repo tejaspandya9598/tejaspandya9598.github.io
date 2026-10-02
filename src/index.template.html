@@ -891,7 +891,7 @@ footer{padding:64px 0 60px}
       <form id="cc-form" novalidate>
         <label>Name<input name="name" autocomplete="name" required></label>
         <label>Company<input name="company" autocomplete="organization"></label>
-        <label>LinkedIn profile<input name="linkedin" inputmode="url" placeholder="linkedin.com/in/…" required></label>
+        <label>LinkedIn profile<input name="linkedin" inputmode="url" placeholder="your handle or linkedin.com/in/…" required></label>
         <label class="cc-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
         <button type="submit">Send</button>
         <div class="cc-err" id="cc-err" role="alert"></div>
@@ -1370,6 +1370,14 @@ if(!REDUCE&&matchMedia("(hover:hover) and (pointer:fine)").matches){
   const card=document.getElementById("cc"),tab=document.getElementById("cc-tab");if(!card||!tab)return;
   const form=document.getElementById("cc-form"),err=document.getElementById("cc-err"),walk=card.querySelector(".cc-walk");
   const sent=()=>{try{return !!localStorage.getItem(K);}catch(e){return false;}};
+  // "jane-doe", "@jane-doe", "in/jane-doe" or any linkedin.com URL -> https://www.linkedin.com/in/jane-doe
+  function linkedinUrl(v){
+    v=v.trim().replace(/^@/,"");
+    const m=v.match(/^(?:https?:\/\/)?(?:[a-z]{2,3}\.)?linkedin\.com\/(in|pub|company)\/([^/?#\s]+)/i);
+    if(m)return "https://www.linkedin.com/"+m[1].toLowerCase()+"/"+m[2];
+    const h=v.replace(/^in\//i,"").replace(/\/+$/,"");
+    return /^[A-Za-z0-9][A-Za-z0-9_-]{2,99}$/.test(h)?"https://www.linkedin.com/in/"+h:"";
+  }
   const hover=matchMedia("(hover:hover) and (pointer:fine)").matches;
   let shown=false,closeT=0;
   function drawWalk(){
@@ -1406,9 +1414,10 @@ if(!REDUCE&&matchMedia("(hover:hover) and (pointer:fine)").matches){
   fromHash();addEventListener("hashchange",fromHash);
   form.addEventListener("submit",async e=>{
     e.preventDefault();err.textContent="";
-    const f=form.elements,name=f.name.value.trim(),li=f.linkedin.value.trim();
+    const f=form.elements,name=f.name.value.trim(),raw=f.linkedin.value.trim(),li=linkedinUrl(raw);
     f.name.setAttribute("aria-invalid",!name);f.linkedin.setAttribute("aria-invalid",!li);
-    if(!name||!li){err.textContent="Please add your name and LinkedIn profile.";return;}
+    if(!name||!raw){err.textContent="Please add your name and LinkedIn profile.";return;}
+    if(!li){err.textContent="Paste your LinkedIn link, or just the handle after linkedin.com/in/.";return;}
     if(f.website.value)return;                                   // honeypot: bots fill every field
     const data={name,company:f.company.value.trim(),linkedin:li,page:location.href,
       subject:"New contact from tejaspandya.me: "+name};
