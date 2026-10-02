@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Publish the portfolio. Run from anywhere.
-#   ~/Claude/Projects/6ixE11even.github.io/deploy.sh "what changed"
+#   ~/Claude/Projects/Applications/portfolio-website/site/deploy.sh "what changed"
 set -euo pipefail
 cd "$(dirname "$0")"
 MSG="${1:-Update portfolio}"
@@ -10,4 +10,4 @@ fi
 git add -A
 git commit -q -m "$MSG"
 git push -q origin main
-echo "Pushed. GitHub Pages rebuilds in ~30-60s → https://6ixe11even.github.io"
+echo "Pushed. GitHub Pages rebuilds in ~30-60s → https://tejaspandya.me"
