@@ -422,6 +422,64 @@ footer{padding:64px 0 60px}
   .miles .fill{transform:none!important}
   .cc-done circle,.cc-done path{stroke-dashoffset:0}
 }
+
+/* ── motion pass 2 ────────────────────────────────────────────────────── */
+/* ticker tape of verified results */
+.tape{position:relative;overflow:hidden;border-bottom:1px solid var(--hair);background:var(--panel);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.tape-track{display:flex;width:max-content;animation:tape 70s linear infinite}
+.tape:hover .tape-track{animation-play-state:paused}
+@keyframes tape{to{transform:translateX(-50%)}}
+.tape-set{display:flex;align-items:center;gap:34px;padding:13px 17px;white-space:nowrap}
+.tk{font:400 11.5px var(--mono);letter-spacing:.05em;color:var(--muted);display:inline-flex;gap:8px;align-items:baseline}
+.tk b{font-weight:700;color:var(--ink-soft);letter-spacing:.1em;font-size:10.5px;text-transform:uppercase}
+.tk em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--ink)}
+.tk em.up{color:var(--pos)}.tk em.dn{color:var(--neg)}.tk em.ac{color:var(--accent)}
+.tk-sep{width:4px;height:4px;border-radius:50%;background:var(--hair);flex:none}
+
+/* page-wide cursor light, under the content */
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s;
+  background:radial-gradient(520px circle at var(--gx,50%) var(--gy,50%),var(--accent-soft),transparent 62%)}
+.glow.on{opacity:1}
+main,footer{position:relative;z-index:1}
+
+/* spotlight border that follows the cursor on cards */
+@media (hover:hover) and (pointer:fine){
+  .pcard:hover,.now:hover{border-color:transparent;
+    background:linear-gradient(var(--panel),var(--panel)) padding-box,
+      radial-gradient(260px circle at var(--mx,50%) var(--my,50%),var(--accent),var(--hair) 72%) border-box}
+}
+
+/* portrait tilts with the cursor over the hero */
+.portrait{transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.2,.7,.2,1);will-change:transform}
+
+/* decoding section titles keep their width while they resolve */
+.sec-head h2.dec{font-variant-numeric:tabular-nums}
+
+/* staggered reveals */
+.rise .tw tbody tr{opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.rise.in .tw tbody tr{opacity:1;transform:none}
+.rise.in .tw tbody tr:nth-child(2){transition-delay:.05s}.rise.in .tw tbody tr:nth-child(3){transition-delay:.1s}
+.rise.in .tw tbody tr:nth-child(4){transition-delay:.15s}.rise.in .tw tbody tr:nth-child(5){transition-delay:.2s}
+.rise.in .tw tbody tr:nth-child(6){transition-delay:.25s}.rise.in .tw tbody tr:nth-child(7){transition-delay:.3s}
+.rise.in .tw tbody tr:nth-child(8){transition-delay:.35s}
+.rise .caveat{opacity:0;transform:translateX(-10px);transition:opacity .6s .2s,transform .6s .2s cubic-bezier(.2,.7,.2,1)}
+.rise.in .caveat{opacity:1;transform:none}
+.gantt-wrap .g-bar{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 110ms + .15s)}
+.gantt-wrap.in .g-bar{clip-path:inset(0 0 0 0)}
+.gantt-wrap .g-lbl,.gantt-wrap .g-now{opacity:0;transition:opacity .5s;transition-delay:calc(var(--d,0) * 110ms + .7s)}
+.gantt-wrap.in .g-lbl,.gantt-wrap.in .g-now{opacity:1}
+.gantt-wrap .g-now{--d:9}
+
+@media (prefers-reduced-motion:reduce){
+  .tape-track{animation:none;flex-wrap:wrap;width:auto}
+  .tape-set+.tape-set{display:none}
+  .tape-set{flex-wrap:wrap;white-space:normal;row-gap:8px}
+  .glow{display:none}
+  .rise .tw tbody tr,.rise .caveat{opacity:1;transform:none}
+  .gantt-wrap .g-bar{clip-path:none}
+  .gantt-wrap .g-lbl,.gantt-wrap .g-now{opacity:1}
+}
 </style>
 </head>
 <body>
@@ -475,6 +533,11 @@ footer{padding:64px 0 60px}
     </div>
   </div>
 </div>
+
+<div class="tape" aria-label="Selected results">
+  <div class="tape-track"><div class="tape-set"><span class="tk"><b>Amihud t-stat</b><em class="up">5.32</em></span><span class="tk-sep"></span><span class="tk"><b>ML combo Sharpe</b><em class="up">0.79</em></span><span class="tk-sep"></span><span class="tk"><b>Equal-weight Sharpe</b><em class="dn">−0.57</em></span><span class="tk-sep"></span><span class="tk"><b>Wrong-way risk</b><em class="ac">+16.9% CVA</em></span><span class="tk-sep"></span><span class="tk"><b>Peak PFE</b><em class="">$13.5M</em></span><span class="tk-sep"></span><span class="tk"><b>TWAP vs AC</b><em class="">4.7 / 7.5 bps</em></span><span class="tk-sep"></span><span class="tk"><b>RL vs closed form</b><em class="up">0.060 bps</em></span><span class="tk-sep"></span><span class="tk"><b>Matching engine</b><em class="ac">~21M msg/s</em></span><span class="tk-sep"></span><span class="tk"><b>BS · MC · FD</b><em class="up">within 0.6%</em></span><span class="tk-sep"></span><span class="tk"><b>Ridge, refit yearly</b><em class="dn">0.65 → 0.35</em></span><span class="tk-sep"></span><span class="tk"><b>Multi-period net Sharpe</b><em class="up">0.50–0.70</em></span><span class="tk-sep"></span><span class="tk"><b>EIA events</b><em class="">112 / 79 corroborated</em></span><span class="tk-sep"></span><span class="tk"><b>Basel 2.5 / FRTB</b><em class="up">100% reconciled</em></span><span class="tk-sep"></span><span class="tk"><b>Manual work removed</b><em class="up">50+ h / month</em></span><span class="tk-sep"></span></div><div class="tape-set" aria-hidden="true"><span class="tk"><b>Amihud t-stat</b><em class="up">5.32</em></span><span class="tk-sep"></span><span class="tk"><b>ML combo Sharpe</b><em class="up">0.79</em></span><span class="tk-sep"></span><span class="tk"><b>Equal-weight Sharpe</b><em class="dn">−0.57</em></span><span class="tk-sep"></span><span class="tk"><b>Wrong-way risk</b><em class="ac">+16.9% CVA</em></span><span class="tk-sep"></span><span class="tk"><b>Peak PFE</b><em class="">$13.5M</em></span><span class="tk-sep"></span><span class="tk"><b>TWAP vs AC</b><em class="">4.7 / 7.5 bps</em></span><span class="tk-sep"></span><span class="tk"><b>RL vs closed form</b><em class="up">0.060 bps</em></span><span class="tk-sep"></span><span class="tk"><b>Matching engine</b><em class="ac">~21M msg/s</em></span><span class="tk-sep"></span><span class="tk"><b>BS · MC · FD</b><em class="up">within 0.6%</em></span><span class="tk-sep"></span><span class="tk"><b>Ridge, refit yearly</b><em class="dn">0.65 → 0.35</em></span><span class="tk-sep"></span><span class="tk"><b>Multi-period net Sharpe</b><em class="up">0.50–0.70</em></span><span class="tk-sep"></span><span class="tk"><b>EIA events</b><em class="">112 / 79 corroborated</em></span><span class="tk-sep"></span><span class="tk"><b>Basel 2.5 / FRTB</b><em class="up">100% reconciled</em></span><span class="tk-sep"></span><span class="tk"><b>Manual work removed</b><em class="up">50+ h / month</em></span><span class="tk-sep"></span></div></div>
+</div>
+<div class="glow" aria-hidden="true"></div>
 
 <main>
 <section id="tracks">
@@ -1222,15 +1285,15 @@ function drawJourney(){
     rows.forEach(row=>{
       html+='<div class="g-row">';
       row.forEach(([a,b,t,sub])=>{
-        const L=pct(a),W=pct(b)-pct(a),cls="g-bar"+(name==="Work"?" work":""),txt="<b>"+t+"</b><span>"+sub+"</span>";
+        const L=pct(a),W=pct(b)-pct(a),cls="g-bar"+(name==="Work"?" work":""),txt="<b>"+t+"</b><span>"+sub+"</span>",dd=";--d:"+Math.round((a-JOURNEY.from)/1.4);
         const needPx=Math.max(t.length*7.2,sub.length*6.1)+20;   // mono advance at 11.5px / 10px
-        if(W/100*trackPx>=needPx){html+='<div class="'+cls+'" style="left:'+L+'%;width:'+W+'%">'+txt+'</div>';return;}
+        if(W/100*trackPx>=needPx){html+='<div class="'+cls+'" style="left:'+L+'%;width:'+W+'%'+dd+'">'+txt+'</div>';return;}
         // too narrow to hold its label: draw the bar alone and set the label beside it,
         // on the left when the bar sits near the right edge of the axis
-        html+='<div class="'+cls+'" style="left:'+L+'%;width:'+W+'%"></div>';
+        html+='<div class="'+cls+'" style="left:'+L+'%;width:'+W+'%'+dd+'"></div>';
         html+=L+W>78
-          ?'<div class="g-lbl flip" style="right:calc('+(100-L)+'% + 8px)">'+txt+'</div>'
-          :'<div class="g-lbl" style="left:calc('+(L+W)+'% + 8px)">'+txt+'</div>';
+          ?'<div class="g-lbl flip" style="right:calc('+(100-L)+'% + 8px)'+dd+'">'+txt+'</div>'
+          :'<div class="g-lbl" style="left:calc('+(L+W)+'% + 8px)'+dd+'">'+txt+'</div>';
       });
       html+='</div>';
     });
@@ -1311,7 +1374,10 @@ document.querySelectorAll(".rise").forEach(el=>io.observe(el));
 /* ── hero paths: random walks drifting behind the headline ───────────── */
 (function(){
   const cv=document.getElementById("paths");if(!cv||REDUCE)return;
-  const c=cv.getContext("2d");let W=0,H=0,P=[],on=true,raf=0;
+  const c=cv.getContext("2d");let W=0,H=0,P=[],on=true,raf=0,mx=-1e4,my=-1e4;
+  const hero=cv.parentElement;
+  hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+  hero.addEventListener("pointerleave",()=>{mx=my=-1e4;});
   const reset=(p,x)=>{p.x=x;p.y=Math.random()*H;p.y0=p.y;};
   function size(){const r=cv.parentElement.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);
     W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0);
@@ -1320,8 +1386,9 @@ document.querySelectorAll(".rise").forEach(el=>io.observe(el));
     c.globalCompositeOperation="destination-out";c.fillStyle="rgba(0,0,0,.006)";c.fillRect(0,0,W,H);
     c.globalCompositeOperation="source-over";c.lineWidth=1;
     const ink=CSSV("--ink"),acc=CSSV("--accent");
-    for(const p of P){const nx=p.x+1.1,ny=p.y+gauss()*1.15+(p.y0-p.y)*.004;
-      c.strokeStyle=p.hot?acc:ink;c.globalAlpha=p.hot?.22:.07;
+    for(const p of P){const near=Math.exp(-((p.x-mx)**2+(p.y-my)**2)/26000);
+      const nx=p.x+1.1+near*.8,ny=p.y+gauss()*1.15+(p.y0-p.y)*.004+(my-p.y)*.035*near;
+      c.strokeStyle=p.hot||near>.35?acc:ink;c.globalAlpha=(p.hot?.22:.07)+near*.35;
       c.beginPath();c.moveTo(p.x,p.y);c.lineTo(nx,ny);c.stroke();p.x=nx;p.y=ny;
       if(p.x>W)reset(p,0);}
     c.globalAlpha=1;if(on)raf=requestAnimationFrame(step);}
@@ -1440,6 +1507,52 @@ if(!REDUCE&&matchMedia("(hover:hover) and (pointer:fine)").matches){
       setTimeout(close,4200);
     }catch(x){err.textContent="That didn't send. Please try again, or email tbp8777@nyu.edu.";btn.disabled=false;btn.textContent="Send";}
   });
+})();
+
+
+/* ── motion pass 2 ────────────────────────────────────────────────────── */
+(function(){
+  const FINE=matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if(REDUCE)return;
+
+  // section titles decode from digits into words the first time they scroll in
+  const GL="0123456789+−.%$";
+  const dec=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;dec.unobserve(e.target);
+    const h=e.target,final=h.textContent;h.setAttribute("aria-label",final);h.classList.add("dec");
+    const t0=performance.now(),dur=900;
+    (function f(now){const p=Math.min(1,(now-t0)/dur),k=Math.floor(final.length*p);
+      h.textContent=final.slice(0,k)+[...final.slice(k)].map(ch=>ch===" "?" ":GL[(Math.random()*GL.length)|0]).join("");
+      if(p<1)requestAnimationFrame(f);else{h.textContent=final;h.classList.remove("dec");}})(t0);
+  }),{threshold:.6});
+  document.querySelectorAll(".sec-head h2").forEach(h=>dec.observe(h));
+
+  if(!FINE)return;
+
+  // cursor light across the page, and spotlight borders on cards
+  const glow=document.querySelector(".glow");
+  addEventListener("pointermove",e=>{glow.style.setProperty("--gx",e.clientX+"px");glow.style.setProperty("--gy",e.clientY+"px");glow.classList.add("on");},{passive:true});
+  document.addEventListener("pointerleave",()=>glow.classList.remove("on"));
+  document.querySelectorAll(".now").forEach(el=>el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();
+    el.style.setProperty("--mx",(e.clientX-r.left)+"px");el.style.setProperty("--my",(e.clientY-r.top)+"px");}));
+  document.querySelectorAll(".pcard").forEach(el=>el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();
+    el.style.setProperty("--mx",(e.clientX-r.left)+"px");el.style.setProperty("--my",(e.clientY-r.top)+"px");}));
+
+  // magnetic controls: pulled a few pixels toward the cursor
+  document.querySelectorAll(".rmenu summary,.cc button[type=submit],.cc-open,.tracks .acts a:last-child,.links a").forEach(el=>{
+    el.style.transition=(el.style.transition?el.style.transition+",":"")+"transform .25s cubic-bezier(.2,.7,.2,1)";
+    el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();
+      el.style.transform="translate("+((e.clientX-r.left-r.width/2)*.18).toFixed(1)+"px,"+((e.clientY-r.top-r.height/2)*.28).toFixed(1)+"px)";});
+    el.addEventListener("pointerleave",()=>{el.style.transform="";});
+  });
+
+  // the portrait leans toward the cursor while it moves over the hero
+  const hero=document.querySelector(".hero"),fig=document.querySelector(".portrait");
+  if(hero&&fig){
+    hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      fig.style.transform="perspective(1000px) rotateY("+(x*7).toFixed(2)+"deg) rotateX("+(-y*6).toFixed(2)+"deg)";});
+    hero.addEventListener("pointerleave",()=>{fig.style.transform="";});
+  }
 })();
 
 /* ── redraw plumbing ─────────────────────────────────────────────────── */
