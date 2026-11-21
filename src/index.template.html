@@ -239,6 +239,8 @@ tbody tr.hi td{background:var(--accent-soft);color:var(--ink)}
 
 /* ── now building ─────────────────────────────────────────────────────── */
 .now{background:var(--panel);border:1px solid var(--hair);border-radius:6px;box-shadow:var(--shadow);padding:26px 28px}
+.now+.now{margin-top:18px}
+.now-top p+p{margin-top:10px}
 @media(max-width:640px){.now{padding:20px 18px}}
 .now-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
 .now-top h3{margin:8px 0 10px}
@@ -563,7 +565,7 @@ main,footer{position:relative;z-index:1}
       <article class="pcard rise d1">
         <div class="pcard-top"><span>Trading</span><span>execution · options · market making</span></div>
         <h4>Models that meet a real order book</h4>
-        <p>Almgren–Chriss calibrated to a live Deribit book and stress-tested against a learning agent. SABR fitted to the BTC volatility smile. A Deribit options market maker in progress, with latency-aware fills, delta hedging and P&amp;L after fees.</p>
+        <p>Almgren–Chriss calibrated to a live Deribit book and stress-tested against a learning agent. SABR fitted to the BTC volatility smile. A Deribit options market maker with latency-aware fills, delta hedging and P&amp;L after fees, whose hedged strategies lost money and say why.</p>
         <div class="acts"><a class="repo" href="#w2">02</a><a class="repo" href="#w7">07</a><a class="repo" href="#now">now</a><a class="repo" href="resume/tejas-pandya-quant-trading.pdf" download>résumé ↓</a></div>
       </article>
       <article class="pcard rise d2">
@@ -585,25 +587,26 @@ main,footer{position:relative;z-index:1}
 <section id="now">
   <div class="wrap">
     <div class="sec-head rise">
-      <div class="label">Now building</div>
-      <h2>Work in progress, reported as it goes</h2>
+      <div class="label">Latest work</div>
+      <h2>Finished this autumn, reported as it went</h2>
     </div>
     <div class="now rise">
       <div class="now-top">
         <div>
           <div class="label">Market making · derivatives</div>
           <h3>Deribit BTC options market maker</h3>
-          <p>A C++20 engine that replays recorded Deribit order books, runs several quoting strategies side by side, simulates fills with latency, hedges delta on the BTC perpetual, and reports P&amp;L after fees and adverse selection. The same engine then runs live on paper. If a strategy loses money after costs, that is the result. Three milestones are done: the engine replays a full recorded day, 15.9M events, in 120 seconds, and per-expiry SABR fits on recorded data (β = 0.5, chosen over 1.0 across 98,799 fits) price every quote.</p>
+          <p>A C++20 engine that replays seven recorded days of Deribit BTC option books, trades and tickers with a latency queue in each direction, quotes four strategies around SABR or Deribit's mark IV, fills orders behind the displayed queue, hedges delta on the BTC perpetual, and splits every account's P&amp;L into spread, fees, adverse selection, option mark-to-market and hedge. Parameters were tuned on two days and frozen before the last five were run.</p>
+          <p>The result: none of the 12 delta-hedged accounts made money. All 4 unhedged accounts did, but the index rose 2.5% that week and delta explains each gain. Deribit's maker fee is about as large as the spread these short-dated options pay, fills are adversely selected within the minute, and every hedge pays taker fees. The same engine runs live on paper behind a local dashboard.</p>
         </div>
-        <span class="wip">In progress</span>
+        <span class="wip">Complete</span>
       </div>
       <ol class="miles">
         <li class="done"><span class="tick"></span><span class="fill"></span><b>M1 · Recorder</b>websocket recorder, book rebuild check, fee schedule</li>
-        <li class="done"><span class="tick"></span><span class="fill"></span><b>M2 · C++ core</b>events, order books, exchange-time clock; a day replays in 120 s</li>
+        <li class="done"><span class="tick"></span><span class="fill"></span><b>M2 · C++ core</b>events, order books, exchange-time clock</li>
         <li class="done"><span class="tick"></span><span class="fill"></span><b>M3 · Pricing</b>Black-76, IV solver, SABR fits on recorded data</li>
-        <li class="cur"><b>M4 · Simulator</b>fills with latency, fees, accounts, first strategies</li>
-        <li><b>M5 · Results</b>hedgers and the full strategy grid</li>
-        <li><b>M6 · Live</b>paper-trading dashboard and demo video</li>
+        <li class="done"><span class="tick"></span><span class="fill"></span><b>M4 · Simulator</b>fills with latency, fees, accounts, first strategies</li>
+        <li class="done"><span class="tick"></span><span class="fill"></span><b>M5 · Results</b>hedgers and the full strategy grid</li>
+        <li class="done"><span class="tick"></span><span class="fill"></span><b>M6 · Live</b>live paper trading and a local dashboard</li>
       </ol>
       <div class="rec">
         <span class="label" id="rec-label">7-day recording</span>
@@ -612,7 +615,21 @@ main,footer{position:relative;z-index:1}
       </div>
       <div class="now-foot">
         <span class="chip">C++20</span><span class="chip">Python</span><span class="chip">websockets</span>
-        <span class="chip">~120 options + BTC-PERPETUAL at 100 ms</span><span class="chip">repository goes public at M6</span>
+        <span class="chip">235–240 options quoted per account</span><a class="chip" href="https://github.com/tejaspandya9598/deribit-options-market-maker">repository ↗</a>
+      </div>
+    </div>
+    <div class="now rise">
+      <div class="now-top">
+        <div>
+          <div class="label">Research · clinical NLP</div>
+          <h3>Screening vaccine safety reports with clinical language models</h3>
+          <p>Supervised research at NYU Tandon with a clinical team that screens VAERS vaccine adverse-event reports for neurological conditions. My part is transverse myelitis and a measles literature pilot. I fine-tuned three clinical BERT-family encoders on physician-adjudicated narratives and benchmarked them against keyword search, TF-IDF logistic regression and gradient boosting on the structured fields, on the same grouped five-fold splits, with bootstrap intervals and paired comparisons.</p>
+          <p>One finding shaped the final model: the physician's checklist fields inflate ROC-AUC because they reuse the reviewer's own assessment, so the screening model was fixed in advance on pre-review inputs alone. The results stay unpublished until review.</p>
+        </div>
+        <span class="wip">6 abstracts submitted · AAN 2027</span>
+      </div>
+      <div class="now-foot">
+        <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">Hugging Face</span><span class="chip">team repository, not public</span>
       </div>
     </div>
   </div>
@@ -920,7 +937,7 @@ main,footer{position:relative;z-index:1}
     <div class="sec-head rise" style="margin-bottom:24px">
       <div class="label">Contact</div>
       <h2>If your team prices, trades or risk-manages anything, let's talk</h2>
-      <p>Open to full-time roles from 2027 across quantitative research, trading, development and risk, and always glad to talk shop before any of that. Email is fastest. Each résumé below is written for its track, and all twelve repositories are public with tests, CI and a README that says what they do not do.</p>
+      <p>Open to full-time roles from 2027 across quantitative research, trading, development and risk, and always glad to talk shop before any of that. Email is fastest. Each résumé below is written for its track, and the twelve CI'd repositories and the Deribit market maker are public, each with tests and a README that says what it does not do.</p>
     </div>
     <div class="contact rise">
       <ul class="clist">
